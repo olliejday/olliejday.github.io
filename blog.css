@@ -176,3 +176,6 @@ body {
   color: dodgerblue;
 }
 
+.image-fluid-svg {
+  width: 100%;
+}
