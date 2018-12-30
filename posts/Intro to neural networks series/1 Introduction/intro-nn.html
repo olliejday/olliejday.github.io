@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content=" Posts about artificial intelligence and machine learning.
+    A collection of insights, explanations and projects.">
+    <meta name="author" content="Ollie Day">
+    <link rel="icon" href="/olliejday.github.io/favicon.ico?">
+
+    <title>DAY: Post</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/olliejday.github.io/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+    <link href="/olliejday.github.io/blog.css" rel="stylesheet">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/olliejday.github.io/index.html">Home</a>
+            </li>
+        </ul>
+    </div>
+    <div class="order-0 mx-auto">
+        <a href="index.html">
+            <img class="navbar-logo" src="/olliejday.github.io/assets/img/logo/logo.svg" alt="Logo: DAY">
+        </a>
+        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/olliejday.github.io/about.html">About</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="container-fluid title-container">
+            <div class="row mb-2">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-10">
+
+                    <h1 class="mb-auto title-text">
+                        1. Introduction to Neural Networks
+                    </h1>
+                    <!-- TODO: Make this link to the series -->
+                    <strong class="d-inline-block mb-2 intro-nn-series">Introduction to Neural Networks Series</strong>
+                    <div class="mb-1 text-muted">Dec 30, 2018</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main role="main" class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+        </div>
+
+        <div class="col-md-7 body-text">
+            <div><span style="font-weight: bold;">INTRODUCTION</span></div>
+            <div>&nbsp;</div>
+            <div>Neural networks are an idea that can be traced back to the&nbsp;1940s that has seen a renewed interest
+                in the last decade.&nbsp;This&nbsp;resurgence&nbsp;is&nbsp;in&nbsp;large&nbsp;part&nbsp;due&nbsp;to
+                advances in training deep neural nets supported by a triad of devlopments in big data (the internet),
+                big computation (GPUs and memory) and better algorithms (deeper networks). The field of research in
+                neural networks is called deep learning and has been responsible for some of the most impressive
+                capabilities in machine learning systems.
+            </div>
+            <div>&nbsp;</div>
+            <div>In this series we are going to work through building an artificial neural network from first
+                principles. This is a great first step in exploring the exciting, ever expanding world of possibilities
+                with deep learning. In this first post we will expand upon the history, basic ideas and intuitions of
+                neural nets.
+            </div>
+            <div>&nbsp;</div>
+            <div>Amazingly, given all these impressive results, neural networks are no more than non linear function
+                approximators. That is,&nbsp;given some data produced by a function, neural networks will learn to
+                reproduce this function. This puts neural networks,&nbsp;and&nbsp;deep&nbsp;learning&nbsp;in the field
+                of machine learning.&nbsp;
+            </div>
+            <div>&nbsp;</div>
+            <div>Many machine learning techniques work with hand engineered features. These features&nbsp;extract&nbsp;meaningful&nbsp;information
+                from the raw data and are then processed with a function to&nbsp;produce&nbsp;outputs. The parameters&nbsp;of&nbsp;these&nbsp;models&nbsp;can&nbsp;be
+                adjusted to make the outputs more closely match those we would like them to be. Like tweaking dials to
+                make the temperature you would like on the heating.
+            </div>
+            <div>&nbsp;</div>
+            <div>Neural networks define a class of methods that&nbsp;use this key idea of parameterised combinations of
+                features with <span style="font-weight: bold;">parameters changed to improve performance</span>. The
+                powerful idea in neural nets is that the <span style="font-weight: bold;">features are learned</span>.&nbsp;
+            </div>
+            <div>&nbsp;</div>
+            <div>Neural networks are built up&nbsp;from repeated units&nbsp;called "neurons". They are a&nbsp;crude&nbsp;model
+                of the workings of&nbsp;neural&nbsp;networks&nbsp;in animal brains, hence much of the terminology.
+                Neurons are grouped into layers which are then processed sequentially with&nbsp;<span
+                        style="font-weight: bold;">later layers building up increasingly high level and abstract features</span>&nbsp;that
+                are used to construct the outputs. As an example,&nbsp;in&nbsp;image&nbsp;processing a low level layer
+                might represent edges which are processed further and build up to represent parts of objects in higher
+                layers so that the output might be the type of object.
+            </div>
+            <div>&nbsp;</div>
+            <div><span style="font-weight: bold;">LEARNING</span></div>
+            <div>&nbsp;</div>
+            <div>This idea of learning features is called representation learning. Learned representations can benefit
+                not only by not requiring human operators to design features, but also by learning more effective
+                features. It's easier for a human to do arithmetic on numbers than on Roman numerals.
+            </div>
+            <div>&nbsp;</div>
+            <div>//&nbsp;Layers as better features</div>
+            <div>&nbsp;</div>
+            <div>//&nbsp;Layers as cimoelx multi step functions</div>
+            <div>&nbsp;</div>
+            <div>Neural networks are very powerful function approximators, but to work with many of the intuitive
+                problems we are interested in there are highly complex functions. For example the function from pixels
+                to objects. Furthermore we usually cannot capture every possible data example or variation, and so the
+                features and functions learned must <span style="font-weight: bold;">generalise </span>to&nbsp;output&nbsp;the
+                correct signal for new input examples in the same domain.
+            </div>
+            <div>&nbsp;</div>
+            <div>Neural networks typically learn by a&nbsp;type&nbsp;of stochastic gradient descent. Every weight is
+                adjusted a small step towards&nbsp;weights expected to improve the network&rsquo;s performance on an
+                objective function such as average number of wrongly identified objects. To compute the desired
+                adjustment we need to estimate the partial derivative of&nbsp;the objective function with respect to
+                each weight. This is typically done by the backpropagation algorithm. First we do a forward pass on a
+                set of data examples. We use the output activation comapre to the desired outputs and the objective
+                function to get a sample of the desired derivatives.
+            </div>
+            <div>&nbsp;</div>
+            <div><span style="font-weight: bold;">STRUCTURE</span></div>
+
+            <div>&nbsp;</div>
+            <div>A&nbsp;single neuron's&nbsp;output value for a given input is called it's "activation". The first layer
+                is the input layer and consists simply of the values of the&nbsp;input data example. Then the "hidden"
+                layers in the network process the inputs. The activation of a neuron consists of:&nbsp;
+            </div>
+            <ol>
+                <li>
+                    <div>A weighted sum of the activations of the previous layer (weights are edges in the diagram)
+                    </div>
+                </li>
+                <li>
+                    <div>Add a&nbsp;scalar bias</div>
+                </li>
+                <li>
+                    <div>Application&nbsp;of&nbsp;an activation function.</div>
+                </li>
+            </ol>
+            <div>The&nbsp;weights of the summation are what is updated in the learning of the network. Weights are
+                modelled to strength of synaptic connections between neurons in the brain.&nbsp;
+            </div>
+            <div>&nbsp;</div>
+            <div>Activations are carried down the network until the final layer, the output layer. The <span
+                    style="font-weight: bold;">output layer&nbsp;can be used to select options from a set of classes, a classification problem, or to model a set of real numbers, a regression problem</span>.
+            </div>
+            <div>&nbsp;</div>
+            <div><img class="card-img-right flex-auto d-none d-md-block"
+                                 src="/olliejday.github.io/posts/Intro to neural networks series/1 Introduction/images/neural_net_architecture_drawing.svg"
+                                 alt="Neural network architecture diagram"></div>
+            <div>&nbsp;</div>
+            <div>In this series we are concerned with feed forward neural networks so we have all paths are from one
+                layer to the next layer. Neural nets with other structures such as recurrent neural nets with looping
+                paths from output to input are considered in other posts to come.
+            </div>
+            <div>&nbsp;</div>
+            <div><span style="font-weight: bold;">APPLICATIONS</span></div>
+
+            <div>&nbsp;</div>
+            <div>The history of Artificial Intelligence is rich with progress on a number of challenges that are
+                difficult for humans but can be described in formal rules and solved by computers such as search
+                problems. A true and important dimension of intelligence however deals with more intuitive tasks that
+                are easy for humans and hard to formally describe, like recognising objects in images. These are
+                problems that neural networks can be suited to.
+            </div>
+            <div>&nbsp;</div>
+            <div>// Examples of uses</div>
+            <div>&nbsp;</div>
+            <div>An ANN with even a single hidden layer containing a large enough number of sigmoid units can
+                approximate any continuous function on a compact region of the network&rsquo;s input space to any degree
+                of accuracy (Cybenko, 1989). This is also true of other non linear activation functions that are now
+                more commonly used. For this reason, neural networks are a "universal approximator". Despite this
+                impressive property, it is important to remember that is usually easier to learn useful functions with
+                deeper, multi layered neural networks, for reasons mentioned above.
+            </div>
+
+        </div>
+
+    </div><!-- /.row -->
+
+</main><!-- /.container -->
+</div>
+
+<footer class="blog-footer">
+    <p>Copyright 2018-2019 <a href="https://www.github.com/olliejday">@olliejday</a>.
+    </p>
+    <p>
+        <a href="#">Back to top</a>
+    </p>
+</footer>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/olliejday.github.io/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+<script src="/olliejday.github.io/assets/js/vendor/popper.min.js"></script>
+<script src="/olliejday.github.io/dist/js/bootstrap.min.js"></script>
+<script src="/olliejday.github.io/assets/js/vendor/holder.min.js"></script>
+<script>
+    Holder.addTheme('thumb', {
+        bg: '#55595c',
+        fg: '#eceeef',
+        text: 'Thumbnail'
+    });
+</script>
+</body>
+</html>

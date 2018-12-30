@@ -8,7 +8,7 @@
     <meta name="author" content="Ollie Day">
     <link rel="icon" href="favicon.ico?">
 
-    <title>DAY</title>
+    <title>DAY: About</title>
 
     <!-- Bootstrap core CSS -->
     <link href="dist/css/bootstrap.min.css" rel="stylesheet">
@@ -19,31 +19,33 @@
 </head>
 
 <body>
-<div class="container-fluid">
 
-    <!-- NAVBAR - mostly copy this from index.html - keep that as master -->
-    <div class="container navbar-container">
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="index.html">
-                            <img class="navbar-logo" src="assets/img/logo/logo.svg" alt="Logo: DAY">
-                        </a>
-                    </li>
-
-                    <li class="nav-item active">
-                        <a class="nav-link" href="about.html">About</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+            </li>
+        </ul>
     </div>
+    <div class="order-0 mx-auto">
+        <a href="index.html">
+            <img class="navbar-logo" src="assets/img/logo/logo.svg" alt="Logo: DAY">
+        </a>
+        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="about.html">About</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid">
 
     <div class="row">
         <div class="container-fluid title-container">

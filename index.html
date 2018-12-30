@@ -8,7 +8,7 @@
     <meta name="author" content="Ollie Day">
     <link rel="icon" href="favicon.ico?">
 
-    <title>DAY</title>
+    <title>DAY: Home</title>
 
     <!-- Bootstrap core CSS -->
     <link href="dist/css/bootstrap.min.css" rel="stylesheet">
@@ -22,73 +22,38 @@
 <body>
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04"
-            aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarsExample04">
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home</a>
             </li>
         </ul>
     </div>
-
-    <a href="index.html">
-        <img class="navbar-logo" src="assets/img/logo/logo.svg" alt="Logo: DAY">
-    </a>
-
-    <div class="collapse navbar-collapse" id="navbarsExample05">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+    <div class="order-0 mx-auto">
+        <a href="index.html">
+            <img class="navbar-logo" src="assets/img/logo/logo.svg" alt="Logo: DAY">
+        </a>
+        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
                 <a class="nav-link" href="about.html">About</a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-md-0">
-            <input class="form-control" type="text" placeholder="Search">
-        </form>
+
+        <!--TODO: ADD SEARCH -->
+        <!--<form class="form-inline mt-2 mt-md-0">-->
+        <!--<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">-->
+        <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+        <!--</form>-->
+
     </div>
 </nav>
 
 <div class="container-fluid">
-
-    <!-- NAVBAR -->
-    <!--<div class="container navbar-container">-->
-    <!--<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">-->
-    <!--<div class="collapse navbar-collapse" id="navbarCollapse">-->
-
-    <!--<ul class="navbar-nav mr-auto">-->
-    <!--<li class="nav-item active">-->
-    <!--<a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>-->
-    <!--</li>-->
-
-    <!--<li class="nav-item">-->
-    <!--<a href="index.html">-->
-    <!--<img class="navbar-logo" src="assets/img/logo/logo.svg" alt="Logo: DAY">-->
-    <!--</a>-->
-    <!--</li>-->
-
-    <!--<li class="nav-item">-->
-    <!--<a class="nav-link" href="about.html">About</a>-->
-    <!--</li>-->
-
-    <!--&lt;!&ndash;<li class="nav-item">&ndash;&gt;-->
-    <!--&lt;!&ndash;<a class="nav-link" href="#">Option</a>&ndash;&gt;-->
-    <!--&lt;!&ndash;</li>&ndash;&gt;-->
-
-    <!--</ul>-->
-
-    <!--&lt;!&ndash; TODO: ADD SEARCH &ndash;&gt;-->
-
-    <!--&lt;!&ndash;<form class="form-inline mt-2 mt-md-0">&ndash;&gt;-->
-    <!--&lt;!&ndash;<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">&ndash;&gt;-->
-    <!--&lt;!&ndash;<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>&ndash;&gt;-->
-    <!--&lt;!&ndash;</form>&ndash;&gt;-->
-
-    <!--</div>-->
-    <!--</nav>-->
-    <!--</div>-->
 
     <div class="row">
         <div class="container-fluid title-container">
@@ -102,19 +67,23 @@
                         <div class="card flex-md-row mb-4 box-shadow h-md-250">
                             <div class="card-body d-flex flex-column align-items-start">
                                 <h3 class="mb-auto">
-                                    <a class="text-dark" href="#">Featured post</a>
+                                    <a class="text-dark"
+                                       href="posts/Intro to neural networks series/1 Introduction/intro-nn.html">1.
+                                        Introduction to Neural Networks</a>
                                 </h3>
-                                <strong class="d-inline-block mb-2 text-primary">World</strong>
-                                <div class="mb-1 text-muted">Nov 12</div>
-                                <p class="card-text mb-auto">This is a wider card with supporting text below as a
-                                    natural
-                                    lead-in to
-                                    additional content.</p>
-                                <a href="#">Continue reading</a>
+                                <strong class="d-inline-block mb-2 intro-nn-series">Introduction to Neural Networks
+                                    Series</strong>
+                                <div class="mb-1 text-muted">Dec 30, 2018</div>
+                                <p class="card-text mb-auto">
+                                    Expand upon the history,
+                                    basic ideas and intuitions of neural nets.
+                                </p>
+                                <a href="posts/Intro to neural networks series/1 Introduction/intro-nn.html">Continue
+                                    reading</a>
                             </div>
                             <img class="card-img-right flex-auto d-none d-md-block"
-                                 data-src="holder.js/200x250?theme=thumb"
-                                 alt="Card image cap">
+                                 src="/olliejday.github.io/posts/Intro to neural networks series/1 Introduction/images/thumbnail.svg"
+                                 alt="Neural network abstract thumbnail">
                         </div>
                     </div>
                 </div>
@@ -244,23 +213,25 @@
                     <p> A collection of insights, explanations and projects.</p>
                 </div>
 
-                <div class="p-3">
-                    <h4 class="font-italic">Archives</h4>
-                    <ol class="list-unstyled mb-0">
-                        <li><a href="#">March 2014</a></li>
-                        <li><a href="#">February 2014</a></li>
-                        <li><a href="#">January 2014</a></li>
-                        <li><a href="#">December 2013</a></li>
-                        <li><a href="#">November 2013</a></li>
-                        <li><a href="#">October 2013</a></li>
-                        <li><a href="#">September 2013</a></li>
-                        <li><a href="#">August 2013</a></li>
-                        <li><a href="#">July 2013</a></li>
-                        <li><a href="#">June 2013</a></li>
-                        <li><a href="#">May 2013</a></li>
-                        <li><a href="#">April 2013</a></li>
-                    </ol>
-                </div>
+                <!-- TODO: Setup some archiving by date or by tags to better organise content -->
+
+                <!--<div class="p-3">-->
+                <!--<h4 class="font-italic">Archives</h4>-->
+                <!--<ol class="list-unstyled mb-0">-->
+                <!--<li><a href="#">March 2014</a></li>-->
+                <!--<li><a href="#">February 2014</a></li>-->
+                <!--<li><a href="#">January 2014</a></li>-->
+                <!--<li><a href="#">December 2013</a></li>-->
+                <!--<li><a href="#">November 2013</a></li>-->
+                <!--<li><a href="#">October 2013</a></li>-->
+                <!--<li><a href="#">September 2013</a></li>-->
+                <!--<li><a href="#">August 2013</a></li>-->
+                <!--<li><a href="#">July 2013</a></li>-->
+                <!--<li><a href="#">June 2013</a></li>-->
+                <!--<li><a href="#">May 2013</a></li>-->
+                <!--<li><a href="#">April 2013</a></li>-->
+                <!--</ol>-->
+                <!--</div>-->
 
             </aside><!-- /.posts-sidebar -->
 
