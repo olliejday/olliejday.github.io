@@ -57,11 +57,16 @@ body {
 .nav-scroller .nav-link {
   padding-top: .75rem;
   padding-bottom: .75rem;
-  font-size: .875rem;
 }
 
-.navbar-brand {
+.nav-item {
   margin-right: 4em;
+  margin-left: 4em;
+  font-size: 1.4rem;
+}
+
+.navbar-nav {
+  margin: 0 auto;
 }
 
 .card-img-right {

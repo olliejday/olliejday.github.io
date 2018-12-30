@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="297mm"
-   height="210mm"
-   viewBox="0 0 297 210"
+   width="22mm"
+   height="12mm"
+   viewBox="0 0 22 12"
    id="svg4152"
    version="1.1"
    inkscape:version="0.91 r13725"
@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.2521058"
-     inkscape:cx="461.21733"
-     inkscape:cy="397.32288"
+     inkscape:zoom="1.0325817"
+     inkscape:cx="582.2202"
+     inkscape:cy="388.7048"
      inkscape:current-layer="layer1"
      id="namedview4156"
      showgrid="false"
@@ -51,19 +51,20 @@
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="translate(0,-198)">
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:11.28888893px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="117.67535"
-       y="102.60352"
+       x="0.9689433"
+       y="208.10391"
        id="text4701"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4703"
-         x="117.67535"
-         y="102.60352"
-         style="-inkscape-font-specification:'Bitstream Vera Sans Mono';font-family:'Bitstream Vera Sans Mono';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"><tspan
+         x="0.9689433"
+         y="208.10391"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Bitstream Vera Sans Mono';-inkscape-font-specification:'Bitstream Vera Sans Mono'"><tspan
            style="fill:#00aad4"
            id="tspan4771">D</tspan><tspan
            style="fill:#d35fbc"
@@ -73,14 +74,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:11.28888893px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="117.15266"
-       y="102.14605"
+       x="0.44625345"
+       y="207.64644"
        id="text4701-9"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4703-8"
-         x="117.15266"
-         y="102.14605"
+         x="0.44625345"
+         y="207.64644"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Bitstream Vera Sans Mono';-inkscape-font-specification:'Bitstream Vera Sans Mono'"><tspan
            style="fill:#ff8080;fill-opacity:1"
            id="tspan4741">D</tspan><tspan

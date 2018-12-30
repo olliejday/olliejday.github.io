@@ -24,22 +24,25 @@
     <!-- NAVBAR -->
     <div class="container navbar-container">
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <a class="navbar-brand" href="index.html">DAY</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
+
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
                         <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
                     </li>
+
+                    <li class="nav-item">
+                        <a href="index.html">
+                            <img class="navbar-logo" src="assets/img/logo/logo.svg" alt="Logo: DAY">
+                        </a>
+                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">About</a>
                     </li>
 
                     <!--<li class="nav-item">-->
-                        <!--<a class="nav-link" href="#">Option</a>-->
+                    <!--<a class="nav-link" href="#">Option</a>-->
                     <!--</li>-->
 
                 </ul>
@@ -129,103 +132,103 @@
     </div>
 
     <main role="main" class="container-fluid">
-    <div class="row">
-        <div class="col-md-2 blog-main">
-        </div>
-        <div class="col-md-6 blog-main">
+        <div class="row">
+            <div class="col-md-2 blog-main">
+            </div>
+            <div class="col-md-6 blog-main">
 
-            <div class="row mb-2">
+                <div class="row mb-2">
 
-                <!-- EITHER TWO BLOG CARDS WITH TITLE ONLY -->
+                    <!-- EITHER TWO BLOG CARDS WITH TITLE ONLY -->
 
-                <div class="col-md-6">
-                    <div class="card flex-md-row mb-4 box-shadow h-md-250">
-                        <div class="card-body d-flex flex-column align-items-start">
-                            <h3 class="mb-auto">
-                                <a class="text-dark" href="#">Post title</a>
-                            </h3>
-                            <strong class="d-inline-block mb-2 text-success">Design</strong>
+                    <div class="col-md-6">
+                        <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                            <div class="card-body d-flex flex-column align-items-start">
+                                <h3 class="mb-auto">
+                                    <a class="text-dark" href="#">Post title</a>
+                                </h3>
+                                <strong class="d-inline-block mb-2 text-success">Design</strong>
 
-                            <div class="mb-1 text-muted">Nov 11</div>
+                                <div class="mb-1 text-muted">Nov 11</div>
+                            </div>
+                            <img class="card-img-right flex-auto d-none d-md-block"
+                                 data-src="holder.js/200x250?theme=thumb"
+                                 alt="Card image cap">
                         </div>
-                        <img class="card-img-right flex-auto d-none d-md-block"
-                             data-src="holder.js/200x250?theme=thumb"
-                             alt="Card image cap">
                     </div>
+
+                    <div class="col-md-6">
+                        <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                            <div class="card-body d-flex flex-column align-items-start">
+                                <h3 class="mb-auto">
+                                    <a class="text-dark" href="#">Post title</a>
+                                </h3>
+                                <strong class="d-inline-block mb-2 text-success">Design</strong>
+
+                                <div class="mb-1 text-muted">Nov 11</div>
+                            </div>
+                            <img class="card-img-right flex-auto d-none d-md-block"
+                                 data-src="holder.js/200x250?theme=thumb"
+                                 alt="Card image cap">
+                        </div>
+                    </div>
+
+                    <!-- OR SINGLE BLOG CARDS WITH DESCRIPTIONS -->
+
+                    <div class="col-md-12">
+                        <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                            <div class="card-body d-flex flex-column align-items-start">
+                                <h3 class="mb-auto">
+                                    <a class="text-dark" href="#">Post title</a>
+                                </h3>
+                                <strong class="d-inline-block mb-2 text-success">Design</strong>
+                                <div class="mb-1 text-muted">Nov 11</div>
+                                <p class="card-text mb-auto">This is a wider card with supporting text below as a
+                                    natural
+                                    lead-in to
+                                    additional content.</p>
+                                <a href="#">Continue reading</a>
+                            </div>
+                            <img class="card-img-right flex-auto d-none d-md-block"
+                                 data-src="holder.js/200x250?theme=thumb"
+                                 alt="Card image cap">
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="col-md-6">
-                    <div class="card flex-md-row mb-4 box-shadow h-md-250">
-                        <div class="card-body d-flex flex-column align-items-start">
-                            <h3 class="mb-auto">
-                                <a class="text-dark" href="#">Post title</a>
-                            </h3>
-                            <strong class="d-inline-block mb-2 text-success">Design</strong>
+            </div><!-- /.posts-main -->
 
-                            <div class="mb-1 text-muted">Nov 11</div>
-                        </div>
-                        <img class="card-img-right flex-auto d-none d-md-block"
-                             data-src="holder.js/200x250?theme=thumb"
-                             alt="Card image cap">
-                    </div>
+            <!-- SIDEBAR -->
+
+            <aside class="col-md-3 blog-sidebar">
+                <div class="p-3 mb-3 bg-light rounded">
+                    <h4 class="font-italic">About</h4>
+                    <p>
+                        <strong class="d-inline-block mb-2 body-text">Let's solve and apply intelligence.</strong>
+                        <strong class="d-inline-block mb-2 body-text">Let's change the world.</strong>
+                    </p>
+                    <p> Posts about artificial intelligence and machine learning. </p>
+                    <p> A collection of insights, explanations and projects.</p>
                 </div>
 
-                <!-- OR SINGLE BLOG CARDS WITH DESCRIPTIONS -->
-
-                <div class="col-md-12">
-                    <div class="card flex-md-row mb-4 box-shadow h-md-250">
-                        <div class="card-body d-flex flex-column align-items-start">
-                            <h3 class="mb-auto">
-                                <a class="text-dark" href="#">Post title</a>
-                            </h3>
-                            <strong class="d-inline-block mb-2 text-success">Design</strong>
-                            <div class="mb-1 text-muted">Nov 11</div>
-                            <p class="card-text mb-auto">This is a wider card with supporting text below as a
-                                natural
-                                lead-in to
-                                additional content.</p>
-                            <a href="#">Continue reading</a>
-                        </div>
-                        <img class="card-img-right flex-auto d-none d-md-block"
-                             data-src="holder.js/200x250?theme=thumb"
-                             alt="Card image cap">
-                    </div>
+                <div class="p-3">
+                    <h4 class="font-italic">Archives</h4>
+                    <ol class="list-unstyled mb-0">
+                        <li><a href="#">March 2014</a></li>
+                        <li><a href="#">February 2014</a></li>
+                        <li><a href="#">January 2014</a></li>
+                        <li><a href="#">December 2013</a></li>
+                        <li><a href="#">November 2013</a></li>
+                        <li><a href="#">October 2013</a></li>
+                        <li><a href="#">September 2013</a></li>
+                        <li><a href="#">August 2013</a></li>
+                        <li><a href="#">July 2013</a></li>
+                        <li><a href="#">June 2013</a></li>
+                        <li><a href="#">May 2013</a></li>
+                        <li><a href="#">April 2013</a></li>
+                    </ol>
                 </div>
-
-            </div>
-
-        </div><!-- /.posts-main -->
-
-        <!-- SIDEBAR -->
-
-        <aside class="col-md-3 blog-sidebar">
-            <div class="p-3 mb-3 bg-light rounded">
-                <h4 class="font-italic">About</h4>
-                <p>
-                    <strong class="d-inline-block mb-2 body-text">Let's solve and apply intelligence.</strong>
-                    <strong class="d-inline-block mb-2 body-text">Let's change the world.</strong>
-                </p>
-                <p> Posts about artificial intelligence and machine learning. </p>
-                <p> A collection of insights, explanations and projects.</p>
-            </div>
-
-            <div class="p-3">
-                <h4 class="font-italic">Archives</h4>
-                <ol class="list-unstyled mb-0">
-                    <li><a href="#">March 2014</a></li>
-                    <li><a href="#">February 2014</a></li>
-                    <li><a href="#">January 2014</a></li>
-                    <li><a href="#">December 2013</a></li>
-                    <li><a href="#">November 2013</a></li>
-                    <li><a href="#">October 2013</a></li>
-                    <li><a href="#">September 2013</a></li>
-                    <li><a href="#">August 2013</a></li>
-                    <li><a href="#">July 2013</a></li>
-                    <li><a href="#">June 2013</a></li>
-                    <li><a href="#">May 2013</a></li>
-                    <li><a href="#">April 2013</a></li>
-                </ol>
-            </div>
 
             </aside><!-- /.posts-sidebar -->
 
