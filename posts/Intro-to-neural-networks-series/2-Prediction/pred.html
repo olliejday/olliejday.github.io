@@ -8,7 +8,7 @@
     <meta name="author" content="Ollie Day">
     <link rel="icon" href="/olliejday.github.io/favicon.ico?">
 
-    <title>DAY: Post</title>
+    <title>NN Prediction</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/olliejday.github.io/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -16,6 +16,9 @@
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
     <link href="/olliejday.github.io/blog.css" rel="stylesheet">
+
+    <!-- MathJax -->
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" async></script>
 </head>
 
 <body>
@@ -56,7 +59,7 @@
                 <div class="col-md-10">
 
                     <h1 class="mb-auto title-text">
-                        1. Introduction to Neural Networks
+                        2. Neural Networks: Prediction
                     </h1>
                     <!-- TODO: Make this link to the series -->
                     <strong class="d-inline-block mb-2 intro-nn-series">Introduction to Neural Networks Series</strong>
@@ -74,142 +77,10 @@
 
         <div class="col-md-7 body-text">
 
-            <p><br/><strong>INTRODUCTION</strong><br/><br/>Neural networks are an idea that can be traced back to the
-                1940s that have seen a renewed interest in the last decade. This resurgence is in large part due to
-                advances in training deep neural nets supported by a triad of developments in big data (the internet),
-                big computation (GPUs and memory) and better algorithms (deeper networks). The field of research in
-                neural networks is called deep learning and has been responsible for some of the most impressive
-                capabilities in machine learning systems.<br/><br/>In this series, we are going to work through building
-                an artificial neural network from first principles. This is a great first step in exploring the
-                exciting, ever-expanding world of possibilities with deep learning. In this first post, we will expand
-                upon the history, basic ideas and intuitions of neural nets.<br/><br/>Amazingly, given all these
-                impressive results, neural networks are no more than non linear function approximators. That is, given
-                some data produced by a function, neural networks will learn to reproduce this function. This puts
-                neural networks and deep learning in the field of machine learning. <br/><br/>Many machine learning
-                techniques work with hand engineered features. These features extract meaningful information from the
-                raw data and are then processed with a function to produce outputs. The parameters of these models can
-                be adjusted to make the outputs more closely match those we would like them to be. Like tweaking dials
-                to make the temperature you would like on the heating.<br/><br/>Neural networks define a class of
-                methods that use this key idea of <strong>parameterised combinations of features</strong> with <strong>parameters
-                    changed to improve performance</strong>. The powerful idea in neural nets is that the <strong>features
-                    are learned</strong>. <br/><br/><strong>LEARNING</strong><br/><br/>This idea of learning features is
-                called representation learning. Learned representations can benefit not only by not requiring human
-                operators to design features but also by learning more effective features. It's easier for a human to do
-                arithmetic on numbers than on Roman numerals.<br/><br/>Neural networks are very powerful function
-                approximators, but to work with many of the intuitive problems we are interested in there are highly
-                complex functions. For example the function from pixels to objects. Furthermore, we usually cannot
-                capture every possible data example or variation, and so the features and functions learned must
-                <strong>generalise</strong> to output the correct signal for new input examples in the same domain.<br/><br/>Neural
-                networks typically learn by a type of stochastic gradient descent. Every weight is adjusted a small step
-                towards weights expected to improve the network&rsquo;s performance on an objective function such as the
-                average number of wrongly identified objects. To compute the desired adjustment we need to estimate the
-                partial derivative of the objective function with respect to each weight. This is typically done by the
-                backpropagation algorithm. First, we do a forward pass on a set of data examples. We use the output
-                activation compared to the desired outputs and the objective function to get a sample of the desired
-                derivatives.<br/>
+            <p><br/><strong>INTRODUCTION</strong><br/><br/>
 
-                <br/><strong>STRUCTURE</strong><br/><br/>A single neuron's output value for a given
-                input is called it's "activation". The first layer is the input layer and consists simply of the values
-                of the input data example. Then the "hidden" layers in the network process the inputs. The activation of
-                a neuron consists of:</p>
-            <ol>
-                <li>A weighted sum of the activations of the previous layer (weights are edges in the diagram)</li>
-                <li>Add a scalar bias</li>
-                <li>Application of an activation function.</li>
-            </ol>
-            <p>The weights of the summation are what is updated in the learning of the network. Weights are modelled to
-                the strength of synaptic connections between neurons in the brain. <br/><br/>Activations are carried
-                down the network until the final layer, the output layer. The <strong>output layer</strong> can be used
-                to <strong>select options from a set of classes, a classification problem</strong>, or to<strong> model
-                    a set of real numbers, a regression problem</strong>.<br/><br/>In this series, we are concerned with
-                feedforward neural networks so we have all paths are from one layer to the next layer. Neural nets with
-                other structures such as recurrent neural nets with looping paths from output to input are considered in
-                other posts to come.<br/><br/>Below shows a typical architecture of a neural network. It as one input
-                layer that is set by the input data example; two hidden layers and one output layer. Each node in the
-                graph is neuron where the above three steps are applied. Each edge represents a weight that is learned.
-                Input is processed layer by layer from the input layer from left to right to the outputs.<br/>Neural
-                network architecture diagram</p>
-            <div><img class="card-img-right image-fluid-svg"
-                      src="/olliejday.github.io/posts/Intro-to-neural-networks-series/1-Introduction/images/neural_net_architecture_drawing.svg"
-                      alt="Neural network architecture diagram"></div>
-
-            <br/><strong>REPRESENTATION LEARNING</strong><br/><br/>One way to view what neural
-            networks learn is as follows. Neural networks are built up from repeated units called "neurons". These
-            units are a crude model of the workings of neural networks in animal brains, hence much of the
-            terminology. Neurons are grouped into layers which are then processed sequentially with <strong>later
-            layers of increasingly high level and abstract features built up from previous layers of lower
-            level, simpler concepts</strong>. Developing complex concepts from simpler ones that are then used
-            to construct the outputs. As an example is demonstrated in the image below. In an image processing task,
-            the inputs could be pixels, then a a low-level layer might represent edges
-            which are processed further and build up to represent parts of objects in higher layers so that the
-            output might be the type of object or identify a person.<br/><br/>This idea of learning features in this way
-            is called representation
-            learning. Learned representations can benefit not only by not requiring human operators to design
-            features but also by learning more effective features. It's easier for a human to do arithmetic on
-            numbers than on Roman numerals.<br/>
-
-            <div><img class="card-img-right image-fluid-svg"
-                      src="/olliejday.github.io/posts/Intro-to-neural-networks-series/1-Introduction/images/representation-learning.svg"
-                      alt="Image: Neural networks learn hierarchical feature representations"></div>
-
-
-            <br/><strong>FUNCTION APPROXIMATORS</strong><br/><br/>An alternate
-            piece of intuition that can help guide understanding about the depth of neural networks comes from the
-            view of them as function approximators. An ANN with even a single hidden layer containing a large enough
-            number of sigmoid units can approximate any continuous function on a compact region of the network&rsquo;s
-            input space to any degree of accuracy (Cybenko, 1989). In other words, neural networks are in theory
-            very powerful at copying other functions from examples of their inputs and outputs. This is also true of
-            some other non-linear activation functions that are now more commonly used. For this reason, neural
-            networks are a <strong>universal function approximator</strong>.<br/><br/>Although the theoretical
-            result holds with only a single layer, deeper (multi-layered) networks are better able to learn a
-            multi-stage process. Each neuron's activation can be seen as modelling the state of a computation, so
-            multiple layers compute multiple steps with parallel computations in each neuron of the layer. This is
-            the alternate view of the representations that neural networks learn - their activations may encode
-            information used to handle the data at a later stage of computation, similar to pointers or counters in
-            programming.<br/>
-            <br/>
-            <p>The image below shows this relationship where a layer computes a function on the outputs of all neurons
-                in the layer before which computes a function on the layer before it and so on. With the input layer
-                being set by the data layer W in the image, and the output layer giving the desired outputs on the data,
-                layer Z in the image. You can see then that the function on the first output, neuron z1, is a function
-                on layer Y which is made up of a series of parallel computations on layer X which is computer on the
-                input layer W. Overall this function on a function setup builds an intuition that neural networks can be
-                viewed as multiple steps of parallel computations.</p>
-            <div><img class="card-img-right image-fluid-svg"
-                      src="/olliejday.github.io/posts/Intro-to-neural-networks-series/1-Introduction/images/function-learning.svg"
-                      alt="Image: Neural networks learn functions"></div>
-
-            <p><br/><strong>APPLICATIONS</strong><br/><br/>It is important to note that deep learning includes methods
-                that develop the neural networks as described in this series of posts, particularly methods called
-                convolutional neural networks and recurrent neural networks. With that said, deep learning has made many
-                impressive breakthroughs, particularly in the last decade, to name a few:</p>
-            <ul>
-                <li>Computer vision - object detection, image segmentation, image captioning</li>
-                <li>Natural language processing - translation, chatbots, speech to text and text to speech</li>
-                <li>Recommender systems</li>
-                <li>Driverless cars</li>
-                <li>Robotics</li>
-                <li>Finance</li>
-            </ul>
-            <p><br/>The history of Artificial Intelligence is rich with progress on a number of challenges that are
-                difficult for humans but can be described in formal rules and solved by computers such as search
-                problems. A true and important dimension of intelligence, however, deals with more intuitive tasks that
-                are easy for humans and hard to formally describe, like recognising objects in images. These are
-                problems that deep learning can be suited to.<br/><br/><strong>SUMMARY</strong><br/><br/>In summary,
-                deep learning is a powerful technique with a rich (recent) history of breakthroughs and applications. It
-                allows a computer to learn, that is to improve its outputs through experience with data examples. They
-                are composed of neurons which are grouped into a sequence of layers. Layers learn increasingly high
-                level, abstract and complex representations built up from lower level representations and the inputs.
-                They use these to build the outputs. Layers also construct multistage computer programs processing the
-                inputs to produce the outputs.</p>
-
-            caps</br>
-            </br>
-            <p><strong>Sources:</strong></p>
-            <p>Deep Learning by Ian Goodfellow, Yoshua Bengio and Aaron Courville (2016)</p>
-            <p>Reinforcement Learning: An Introduction (2nd Edition Draft) by Richard Sutton and Andrew Barto (2018)</p>
-            <p>&nbsp;</p>
-
+                When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
+                $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
         </div>
 
     </div><!-- /.row -->
@@ -221,7 +92,8 @@
     <p>Copyright 2018-2019 <a href="https://www.github.com/olliejday">@olliejday</a>.
     </p>
     <p>
-        <a href="#">Back to top</a>
+        <a href="olliejday.github.io/posts/Intro-to-neural-networks-series/2-Prediction/pred.html">Back to top</a>
+
     </p>
 </footer>
 
