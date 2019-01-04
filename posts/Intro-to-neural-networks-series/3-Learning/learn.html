@@ -8,7 +8,7 @@
     <meta name="author" content="Ollie Day">
     <link rel="icon" href="/olliejday.github.io/favicon.ico?">
 
-    <title>NN Prediction</title>
+    <title>NN Learning</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/olliejday.github.io/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -59,7 +59,7 @@
                 <div class="col-md-10">
 
                     <h1 class="mb-auto title-text">
-                        2. Neural Networks: Prediction
+                        3. Neural Networks: Learning
                     </h1>
                     <!-- TODO: Make this link to the series -->
                     <strong class="d-inline-block mb-2 intro-nn-series">Introduction to Neural Networks</strong>
@@ -78,18 +78,8 @@
         <div class="col-md-7 body-text">
 
             <p><br/><strong>INTRODUCTION</strong><br/><br/>
-<p>Having given the intuitions and overview of deep learning in the first post, we now continue to explore in more detail how neural networks compute their outputs. Starting from the most basic unit we develop the computation of layers and the whole network. Along the way we build up a better idea of how neural networks work, and learn some tricks that improve efficiency of the computation.</p>
-<p>First, it&rsquo;ll be handy to have a reference of notation for the maths in this post. Don&rsquo;t worry about this for now, but come back to it to help understand the equations below. Letters such as \(i\), \(j\) and \(k\) represent indices that select numbers from an ordered list. For example in \(x = [1, 2, 3]^\intercal\) we might use \(x_{1}\) to index the 1st item, the number 1, in the list. Note we use 1 as the 1st index rather than 0-indexing as commonly used in computer science.</p>
-<p>\(x^{i}_{j}\) - feature \(j\) of input example \(i\)<br />\(\textbf{x}^{i}\) - vector of input example \(i\)<br />\(a^{i}_{j}\) - activation of layer \(i\), neuron \(j\) <br />\(\textbf{a}^{i}\) - vector of activations of layer \(i\)<br />\(w^{i}_{j, k}\) - weight from neuron \(j\) in layer \(i-1\) to neuron \(k\) in layer \(i\) <br />\(\textbf{w}^{i}\) - vector of weights from layer \(i-1\) to layer \(i\) <br />\(b^{i}_{j}\) - bias for neuron \(j\) in layer \(i\) <br />\(\textbf{b}^{i}\) - vector of biases in layer \(i\) <br />\(g(x)\) - activation function</p>
-<p>NEURON</p>
-<p>The most basic atomic unit of a neural network is the neuron. These are grouped into layers which are processed in sequence to compute the outputs. While neurons are be trained to learn together, a single neuron&rsquo;s output is independent of the others in it&rsquo;s layer or later in the processing. In other words, a given neuron takes as input the activations of the previous layer. It is also importatnt to remember that the network stores weights from each neuron in the previous layer to each neuron in the next.</p>
-<p>Firstly, we will start with the first layer, the input layer. The input layer does no computation, but has its neurons&rsquo; activations set to the values of the data example. These activations are then treated just like activations of a hidden layer, with weights connecting them to the next layer.</p>
-<p>Another special case to mention is that the output layer. Output neurons are computed similarly to those in a hidden layer, but are not fed into another layer, the values are used as the outputs of the model.</p>
-<p>As mentioned previously, a neuron computes its output as follows:</p>
-<p>1. A weighted sum of the activations of the previous layer (weights are edges in the diagram)<br />2. Add a scalar bias <br />3. Application of an activation function.</p>
-<p>Let&rsquo;s explore these in more detail. For generality, we will look at neuron in layer (so is the previous layer).</p>
-<p>Firstly, we compute the weighted sum (1) of the activations of the previous layer, , weighted by the weights from the previous layer to the neuron in layer .</p>
-<p>Then bias</p>
+
+                COMING SOON.
         </div>
 
     </div><!-- /.row -->
