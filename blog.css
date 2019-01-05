@@ -173,11 +173,15 @@ body {
  */
 
 .intro-nn-series {
-  color: dodgerblue;
+  color: rgb(255, 128, 128);
 }
 
 .image-fluid-svg {
   width: 100%;
   margin-bottom: 1em;
   margin-top: 1em;
+}
+
+.deep-learning-projects-series {
+    color: rgb(128, 128, 255);
 }
