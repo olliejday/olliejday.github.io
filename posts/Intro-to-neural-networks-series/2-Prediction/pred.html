@@ -79,9 +79,9 @@
         <div class="col-md-7 body-text">
 
             <!-- TODO - link to first post in text -->
-
-            <p><br/>//add bold in text<br/>// make sure the indices and notation is correct</p>
-            <p>// make colab</p>
+            <!-- TODO  add bold in text -->
+            <!-- TODO make sure the indices and notation is correct -->
+            <!-- TODO make sure colab notation etc correct -->
             <p><strong>INTRODUCTION</strong></p>
             <p>Having given the intuitions and overview of deep learning in the first post, we now continue to explore
                 in more detail how neural networks compute their outputs. Starting from the most basic unit we develop
@@ -127,7 +127,7 @@
             <p>Concretely, let \(z^{i}_{k}\) be the result of the weighted sum and adding the bias for neuron \(k\) in
                 layer \(i\). Further let \(w^{i}_{j, k}\) be the weight from neuron \(j\) in layer \(i\) to neuron \(k\)
                 in layer \(i+1\) and \(b^{i}_{k}\) be the bias for neuron \(k\) in layer \(i+1\). Then we compute:</p>
-            <p>\(z^{i}_{k} = \sum_{j\in layer(i)}^{} w_{j,k}^{i-1}*a^{i-1}_{j} + b^{i-1}_k\)</p>
+            <p>\(z^{i}_{k} = \sum_{j\in layer(i-1)}^{} w_{j,k}^{i-1}*a^{i-1}_{j} + b^{i-1}_k\)</p>
             <p>This weighted sum operation can be written another way using linear algebra as a vector dot product. The
                 motivation for doing so is that is simplifies the notation, eases implementation and allows
                 computational optimisations for linear algebra operations. To do so we have to extend the notation to
@@ -140,8 +140,9 @@
             <p>Using \(g(x)\) to denote this function we apply it to \(z^{i}_{k}\) from above.</p>
             <p>\(a^{i}_{k} = g(z^i_k)\)</p>
 
-            <p>The image below illustrates the three stages in the forward pass of a single neuron as well as showing how the
-            notation and equations relate to part of a neural network.</p>
+            <p>The image below illustrates the three stages in the forward pass of a single neuron as well as showing
+                how the
+                notation and equations relate to part of a neural network.</p>
             <div><img class="card-img-right image-fluid-svg"
                       src="/olliejday.github.io/posts/Intro-to-neural-networks-series/2-Prediction/images/neuron.svg"
                       alt="Diagram of computation of a neuron and notation"></div>
@@ -270,8 +271,25 @@
                 classification, however, to retrieve a final class we either sample probabilistically or take the
                 maximum of the softmax outputs. In this example, we could sample using these probabilities or output the
                 3rd class since this is the largest output value.</p>
-            <p><strong>EXERCISE</strong></p>
-            <p>Jupyter notebook and solutions</p>
+            <p><strong>PROJECT</strong></p>
+            <p>Now we have an understanding of the maths and ideas behind neural network prediction, it's time to
+                implement this in code! We will use numpy and python to do this as these are popular tools for machine
+                learning and deep learning. The notebooks are fairly accessible but those less familiar may like to look
+                at the <a href="https://docs.scipy.org/doc/">numpy documentation.</a> We have setup this as
+                Google Colab notebooks so they can be run on Google servers (feel free to <a
+                href="https://github.com/olliejday/article-projects/tree/master/intro-nn-series/2-Prediction">download
+                them</a> yourself if you prefer). Colab notebooks are a great tool for machine learning as they
+                come with GPU instances. This means we get really nice computer power in the cloud for free - so anyone
+                can get involved with these projects! We won't need much computer power to run these but it's good to
+                get the hang of these great tools.</p>
+            <p>You can find the <a
+                href="http://colab.research.google.com/github/olliejday/article-projects/blob/master/intro-nn-series/2-Prediction/nn-prediction-project.ipynb">project
+                notebook here.</a></p>
+            <p>We strongly encourage you to give this a try! You'll find you learn lots from implementing this and it
+                will really give you a good understanding of the forward pass stage. There are testing functions so you
+                can see how you do. Once you've had a go try comparing to how we answered the project, in the <a
+                href="https://colab.research.google.com/github/olliejday/article-projects/blob/master/intro-nn-series/2-Prediction/nn-prediction-solutions.ipynb">solution
+                notebook here.</a></p>
             <p><strong>SUMMARY</strong></p>
             <p>In this post we have expanded the details of prediction on the neural network. We developed the ideas and
                 intuitions from the first post into the formal maths and theory of the forward propagation. We built up
