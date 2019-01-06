@@ -79,14 +79,11 @@
         <div class="col-md-7 body-text">
 
             <!-- TODO - link to first post in text -->
-            <!-- TODO  add bold in text -->
-            <!-- TODO make sure the indices and notation is correct -->
-            <!-- TODO make sure colab notation etc correct -->
             <p><strong>INTRODUCTION</strong></p>
             <p>Having given the intuitions and overview of deep learning in the first post, we now continue to explore
                 in more detail how neural networks compute their outputs. Starting from the most basic unit we develop
-                the computation of layers and the whole network. Along the way we build up a better idea of how neural
-                networks work, and learn some tricks that improve efficiency of the computation.</p>
+                the computation of layers and the whole network. Along the way, we build up a better idea of how neural
+                networks work, and learn some tricks that improve the efficiency of the computation.</p>
             <p>We will explain the concepts first at a high level so you can understand some of the ideas and
                 intuitions. Then we will expand on the maths, which will develop a more thorough understanding of the
                 workings of neural network prediction and allow for implementation in code.</p>
@@ -110,14 +107,14 @@
                 1 of the network.</p>
             <p>In formal notation, let an input data example \(\textbf{x}\) be an \(m\) dimensional vector, then
                 \(x_{j}\) is
-                feature \(j\) of this input data example. Also let the notation \(\textbf{a}^{i}\) be the activations of
+                feature \(j\) of this input data example. Also, let the notation \(\textbf{a}^{i}\) be the activations of
                 layer \(i\)
                 and \(a^{i}_{j} \) be the activation of neuron \(j\) in layer \(i\). Then the input layer neurons'
                 activations set to the input data \(\textbf{x}\), simply \(\textbf{a}^{1} = \textbf{x}\), therefore
                 neuron \(j\) of the input layer is set to feature \(j\) of the data example, \(a^{1}_{j} = x_{j}\).</p>
             <p>Another special case to mention is that the <strong>output layer</strong>. Output neurons are computed
                 similarly to those
-                in a hidden layer, but are not fed into another layer, the values are used as the outputs of the
+                in a hidden layer but are not fed into another layer, the values are used as the outputs of the
                 model.</p>
             <p>We said previously that a neuron takes as input the activations of the previous layer and computes its
                 output as follows:</p>
@@ -134,21 +131,21 @@
                 the neurons in the last layer and multiply their activations by the weight from the previous neurons to
                 our neuron \(k\) and add all these values together.</p>
             <p>Next, we add the bias (2). Each neuron has a bias that is learned similarly to the weights between
-                neurons. However the bias is simply added to the weighted sum from (1)</p>
+                neurons. However, the bias is simply added to the weighted sum from (1)</p>
             <p>Concretely, let \(z^{i}_{k}\) be the result of the weighted sum and adding the bias for neuron \(k\) in
-                layer \(i\). Further let \(w^{i}_{j, k}\) be the weight from neuron \(j\) in layer \(i\) to neuron \(k\)
+                layer \(i\). Further, let \(w^{i}_{j, k}\) be the weight from neuron \(j\) in layer \(i\) to neuron \(k\)
                 in layer \(i+1\) and \(b^{i}_{k}\) be the bias for neuron \(k\) in layer \(i+1\), note we have these
                 indexed
-                by the previous layer as this keeps the indices consise. Then we compute:</p>
+                by the previous layer as this keeps the indices consistent. Then we compute:</p>
             <p>\(z^{i}_{k} = \sum_{j\in layer(i-1)}^{} w_{j,k}^{i-1}*a^{i-1}_{j} + b^{i-1}_k\)</p>
             <p>This weighted sum operation can be written another way using linear algebra as a vector dot product. The
-                motivation for doing so is that is simplifies the notation, eases implementation and allows
+                motivation for doing so is that it simplifies the notation, eases implementation and allows
                 computational optimisations for linear algebra operations. To do so we have to extend the notation to
                 include \(\textbf{w}^i_k\) to indicate the weights from layer \(i\) to neuron \(k\) in layer \(i+1\).
                 Then by definition of the dot product, the weighted sum can be written.</p>
             <p>\(z^{i}_{k} = \textbf{w}^{i-1}_k \cdot \textbf{a}^{i-1} + b^{i-1}_k\)</p>
             <p>Next, we take \(z^{i}_{k}\) and pass it through a non-linear function called the activation function.
-                This exact function varies and is explored in the next section. For now we just note that a function is
+                This exact function varies and is explored in the next section. For now, we just note that a function is
                 applied to give us the activations of our neuron.</p>
             <p>Using \(g(x)\) to denote this function we apply it to \(z^{i}_{k}\) from above.</p>
             <p>\(a^{i}_{k} = g(z^i_k)\)</p>
@@ -166,7 +163,7 @@
                 nice theoretical properties. An ANN with even a single hidden layer containing a large enough number of
                 sigmoid units can approximate any continuous function on a compact region of the network&rsquo;s input
                 space to any degree of accuracy (Cybenko, 1989). However, these results apply not only to this specific
-                choice of function, rather, it has been shown that this result holds for a range of non-linear functions
+                choice of function but it has also been shown that this result holds for a range of non-linear functions
                 with certain properties (Hornik, 1991). A key property is non-linearity as this allows the neural
                 network to learn non-linear functions on the data.</p>
             <p>Overall, we will focus on a few key activation functions that are used most commonly. They have
@@ -189,7 +186,7 @@
             <p>As we touched on above, the output layer is a special case because its activations are directly used as
                 the outputs of the neural network. As a result, there are different functions that are typically used to
                 better match the desired outputs. As discussed previously, there are two main types of problems in deep
-                learning, <strong>regression</strong> where we model a set of real valued numbers and <strong>classification</strong>
+                learning, <strong>regression</strong> where we model a set of real-valued numbers and <strong>classification</strong>
                 where we predict
                 which class of a finite set of classes the input belongs to.</p>
             <p>In classification, the sigmoid function above can be a good choice to predict binary variables such as
@@ -213,7 +210,7 @@
                 we would like to identify.</p>
             <p>In regression, it is common to only compute the weighted sum and add the bias with no activation
                 function. We call this a <strong>linear activation</strong>. This is used as many other activation
-                functions considered
+                functions that we considered
                 restrict the output range, so not all numbers can be predicted. A linear activation, however, can
                 predict values unconstrained. If we have \(n\) layers in our neural network, the outputs under linear activation are:</p>
             <p>\(\textbf{o} = \textbf{z}^n = W^{n-1}\textbf{a}^{n-1} + \textbf{b}^{n-1}\)</p>
@@ -227,17 +224,17 @@
             <p>To show this more clearly, let's give an example of the three stages in the activation of a neuron. We'll
                 use a simple toy example to clearly demonstrate the computation.</p>
             <p>We will take a simple first input layer and compute a neuron in the second layer. Let the inputs be
-                \(\textbf{x} = [1, 2, 3]^\intercal\), the weights from the input layer to first neuron in the second
+                \(\textbf{x} = [1, 2, 3]^\intercal\), the weights from the input layer to the first neuron in the second
                 layer be \(\textbf{w}^1_1= [1, 0, -1]^\intercal\) and the bias on our neuron in the second to be \(b^1_1
                 =
                 4\).</p>
-            <p>Then, for the input activation we simply set to the value of the data.</p>
+            <p>Then, for the input activation, we simply set to the value of the data.</p>
             <p>\(\textbf{a}^1 = \textbf{x} = [1, 2, 3]^\intercal\)</p>
             <p>For the activation of the neuron in the second layer we then first compute the weighted sum (1) and add
                 the bias (2).</p>
             <p>\(z^{2}_{1} = \textbf{w}^1_1 \cdot \textbf{a}^{1} + b^1_1 = \sum_{j\in layer(1)}^{} w_{j,1}^{1}*a^{1}_{j}
                 + b^{1}_1 = (1 * 1) + (2 * 0) + (3 * -1) + 4= 2\)</p>
-            <p>The we apply the activation function (3), we use the ReLU function.</p>
+            <p>Then we apply the activation function (3), we use the ReLU function.</p>
             <p>\(a^2_1 = g(z^2_1) = max(0, 2) = 2\)</p>
             <p>There we have it, the activation of our neuron in this toy example is 2.</p>
             <p><strong>LAYER</strong></p>
@@ -245,19 +242,19 @@
                 over each neuron in a layer and then sequentially through each layer in turn until we have the network
                 outputs.</p>
             <p>When we compute at the layer level, we can extend our linear algebra operations from the vector dot
-                product, to a matrix vector product. The intuition is as follows. For the weighted sums on a layer
+                produc to a matrix-vector product. The intuition is as follows. For the weighted sums on a layer
                 \(i\), we are computing \(z^{i}_{k} = \textbf{w}^{i-1}_k \cdot \textbf{a}^{i-1} + b^{i-1}_k\) for each
                 neuron \(k\) in the layer. This turns out to be a computation that can again be conveniently expressed
                 in notation and more easily and efficiently be implemented on a computer using another operation, the
-                matrix vector product. Extending our notation, let \(\textbf{z}^i\) be the vector of weighed sums and
+                matrix-vector product. Extending our notation, let \(\textbf{z}^i\) be the vector of weighted sums and
                 added biases
                 for layer \(i\), \(\textbf{b}^{i}\) be the vector of biases for layer \(i+1\) and \(W^{i}\) be the
                 matrix of weights from layer \(i\) to layer \(i+1\) with rows as the weight vectors \(\textbf{w}^i_k\).
-                Then we have that the whole layer of neuron outputs can be computed in one go, using a matrix vector
+                Then we have that the whole layer of neuron outputs can be computed in one go, using a matrix-vector
                 product
                 on weights and activations as:</p>
             <p>\(\textbf{z}^i = W^{i-1}\textbf{a}^{i-1} + \textbf{b}^{i-1}\)</p>
-            <p>We also extend our activation functions to apply element wise to each element of the vector of weighted
+            <p>We also extend our activation functions to apply element-wise to each element of the vector of weighted
                 sums.</p>
             <p>\(g(\textbf{z}^i) = [g(z^i_1), g(z^i_2), ..., g(z^i_j), ...]^\intercal\)</p>
             <p>With these two operations, we can express the computation of a layer from the activations of the previous
@@ -277,7 +274,7 @@
             <p>Classification (softmax)<br/>\(\textbf{o} = \textbf{a}^{n} = h(\textbf{z}^n) = h(W^{n-1}\textbf{a}^{n-1} + \textbf{b}^{n-1})\)</p>
             <p><strong>EXAMPLE: NETWORK</strong></p>
             <p>Now we will run a full example of a small neural network to demonstrate the full prediction using this
-                layer wise notation. The architecture is illustrated below.</p>
+                layer-wise notation. The architecture is illustrated below.</p>
             <div><img class="card-img-right image-fluid-svg"
                       src="/olliejday.github.io/posts/Intro-to-neural-networks-series/2-Prediction/images/example-net.svg"
                       alt="Diagram of an example neural network"></div>
@@ -312,14 +309,14 @@
                 3rd class since this is the largest output value.</p>
             <p><strong>PROJECT</strong></p>
             <p>Now we have an understanding of the maths and ideas behind neural network prediction, it's time to
-                implement this in code! We will use numpy and python to do this as these are popular tools for machine
+                implement this in code! We will use Numpy and Python to do this as these are popular tools for machine
                 learning and deep learning. The notebooks are fairly accessible but those less familiar may like to look
-                at the <a href="https://docs.scipy.org/doc/">numpy documentation</a>. We have setup this as
+                at the <a href="https://docs.scipy.org/doc/">Numpy documentation</a>. We have set up this as
                 Google Colab notebooks so they can be run on Google servers (feel free to <a
                         href="https://github.com/olliejday/article-projects/tree/master/intro-nn-series/2-Prediction">download
                     them</a> yourself if you prefer). Colab notebooks are a great tool for machine learning as they
-                come with GPU instances. This means we get really nice computer power in the cloud for free - so anyone
-                can get involved with these projects! We won't need much computer power to run these but it's good to
+                come with GPU instances. This means we get really nice computing power in the cloud for free - so anyone
+                can get involved with these projects! We won't need much computing power to run these but it's good to
                 get the hang of these great tools.</p>
             <strong>
             <p>You can find the <a
@@ -332,7 +329,7 @@
                         href="https://colab.research.google.com/github/olliejday/article-projects/blob/master/intro-nn-series/2-Prediction/nn-prediction-solutions.ipynb">solution
                     notebook here</a>.</p>
             <p><strong>SUMMARY</strong></p>
-            <p>In this post we have expanded the details of prediction on the neural network. We developed the ideas and
+            <p>In this post, we have expanded the details of prediction on the neural network. We developed the ideas and
                 intuitions from the first post into the formal maths and theory of the forward propagation. We built up
                 understanding from a single neuron unit into layers and a whole network of computation. We saw some
                 examples of activation functions and key output activation functions for regression and classification.
@@ -346,8 +343,8 @@
             <p> Superscripts represent layer numbers, \(\textbf{a}^i\) is the vector of activations for layer \(i\). Subscripts
                 represent indices that select neurons within a layer, such as \(o_j\) is the output of neuron \(j\).
                 Note we use 1 as the 1st index. For example, \(\textbf{a}^1\) is the vector of activations of the first layer, the input layer.</p>
-            \(\textbf{u}\) - arbitrary vector, used as notation for arbirary input to functions<br/>
-                \(u\) - arbitrary scalar, used as notation for arbirary input to functions<br/>
+            \(\textbf{u}\) - arbitrary vector, used as the notation for arbitrary input to functions<br/>
+                \(u\) - arbitrary scalar, used as the notation for arbitrary input to functions<br/>
             \(\textbf{x}\) - vector of an input data example<br/>
             \(x_{j}\) - feature \(j\) of an input example<br/>
             \(a^{i}_{j}\) - activation of layer \(i\), neuron \(j\)
@@ -355,7 +352,7 @@
             <br/>\(z^{i}_{j}\) - weighted sum and added bias (before activation function) of layer \(i\), neuron \(j\)
             <br/>\(\textbf{z}^{i}\) - vector of weighted sums and added biases (before activation function)
             of layer \(i\) with elements of the vector \(z^{i}_{j}\)<br/>\(o_{j}\) - output layer activation of neuron \(j\) <br/>\(\textbf{o}\) - vector of
-            outputs (activations of last layer) with vector elements \(o_{j}\)<br/>\(w^{i}_{j, k}\) - weight from neuron \(j\) in layer \(i\) to
+            outputs (activations of the last layer) with vector elements \(o_{j}\)<br/>\(w^{i}_{j, k}\) - weight from neuron \(j\) in layer \(i\) to
             neuron \(k\) in layer \(i+1\) <br/>\(\textbf{w}^{i}_k\) - vector of weights from layer \(i\) to neuron
             \(k\) in layer \(i+1\), elements of this vector are \(w^{i}_{j, k}\)
             <br/>\(W^i\) - matrix of weights from layer \(i\) to layer \(i+1\), rows are
