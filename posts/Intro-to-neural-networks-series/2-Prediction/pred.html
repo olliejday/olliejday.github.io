@@ -90,31 +90,35 @@
             <p>We will explain the concepts first at a high level so you can understand some of the ideas and
                 intuitions. Then we will expand on the maths, which will develop a more thorough understanding of the
                 workings of neural network prediction and allow for implementation in code.</p>
+            <p>At the end is a <strong>programming project</strong> where we will code some of the key parts from this post in Python to see how
+                neural network prediction can be implemented and used.</p>
             <p><br/><strong>NEURON</strong></p>
-            <p>The most basic atomic unit of a neural network is the neuron. A neuron's output is called its activation.
-                These are grouped into layers which are processed in sequence to compute the outputs. While neurons are
+            <p>The most basic atomic unit of a neural network is the <strong>neuron</strong>, after the neural networks
+                in animal brains that these artificial networks model. A neuron's output is called its <strong>activation</strong>.
+                These are grouped into <strong>layers</strong> which are processed in sequence to compute the outputs. While neurons are
                 trained to learn functions together, a single neuron&rsquo;s output is independent of the others in its
                 layer or later layers. In other words, a given neuron takes as input the activations of the previous
-                layer. It is also important to remember that the network stores weights from each neuron in the previous
+                layer. It is also important to remember that the network stores <strong>weights</strong> from each neuron in the previous
                 layer to each neuron in the next.</p>
-            <p>Firstly, we will note that the first layer does no computation. Instead, the input layer has its neurons&rsquo;
+            <p>Firstly, we will note that the first layer does no computation. Instead, the <strong>input layer</strong> has its neurons&rsquo;
                 activations set to the numbers of the data example. These activations are then treated just like
                 activations of a hidden layer, with weights connecting them to the next layer. The input layer is layer
                 1 of the network.</p>
-            <p>Formally, let an input data example \(\textbf{x}\) be an \(m\) dimensional vector, then \(x_{j}\) is
-                feature \(j\) of this input data example. Also let \(\textbf{a}^{i}\) be the activations of layer \(i\)
-                and \(a^{i}_{j} \) be the activation of neuron \(j\) in layer \(i\). Then the input layer's neurons'
+            <p>In formal notation, let an input data example \(\textbf{x}\) be an \(m\) dimensional vector, then \(x_{j}\) is
+                feature \(j\) of this input data example. Also let the notation \(\textbf{a}^{i}\) be the activations of layer \(i\)
+                and \(a^{i}_{j} \) be the activation of neuron \(j\) in layer \(i\). Then the input layer neurons'
                 activations set to the input data \(\textbf{x}\), simply \(\textbf{a}^{1} = \textbf{x}\), therefore
                 neuron \(j\) of the input layer is set to feature \(j\) of the data example, \(a^{1}_{j} = x_{j}\).</p>
-            <p>Another special case to mention is that the output layer. Output neurons are computed similarly to those
+            <p>Another special case to mention is that the <strong>output layer</strong>. Output neurons are computed similarly to those
                 in a hidden layer, but are not fed into another layer, the values are used as the outputs of the
                 model.</p>
             <p>We said previously that a neuron takes as input the activations of the previous layer and computes its
                 output as follows:</p>
-            <ol>
+            <ol><strong>
                 <li>A weighted sum of the activations</li>
                 <li>Add a scalar bias</li>
                 <li>Application of a non-linear function.</li>
+                </strong>
             </ol>
             <p>Let&rsquo;s explore these in more detail. To formalise the maths, we will keep generality by looking at
                 neuron \(k\) in layer \(i\) (so \(i-1\) is the previous layer).</p>
@@ -126,7 +130,8 @@
                 neurons. However the bias is simply added to the weighted sum from (1)</p>
             <p>Concretely, let \(z^{i}_{k}\) be the result of the weighted sum and adding the bias for neuron \(k\) in
                 layer \(i\). Further let \(w^{i}_{j, k}\) be the weight from neuron \(j\) in layer \(i\) to neuron \(k\)
-                in layer \(i+1\) and \(b^{i}_{k}\) be the bias for neuron \(k\) in layer \(i+1\). Then we compute:</p>
+                in layer \(i+1\) and \(b^{i}_{k}\) be the bias for neuron \(k\) in layer \(i+1\), note we have these indexed
+                by the previous layer as this keeps the indices consise. Then we compute:</p>
             <p>\(z^{i}_{k} = \sum_{j\in layer(i-1)}^{} w_{j,k}^{i-1}*a^{i-1}_{j} + b^{i-1}_k\)</p>
             <p>This weighted sum operation can be written another way using linear algebra as a vector dot product. The
                 motivation for doing so is that is simplifies the notation, eases implementation and allows
@@ -158,13 +163,14 @@
                 network to learn non-linear functions on the data.</p>
             <p>Overall, we will focus on a few key activation functions that are used most commonly. They have
                 theoretical justification, are simple to implement and perform well in practice (Jarrett et al. , 2009).
-                These are the sigmoid, tanh and ReLU. The ReLU is the most common choice in modern applications. The
+                These are the <strong>sigmoid</strong>, <strong>tanh</strong> and <strong>ReLU</strong>. The ReLU is the most common choice in modern applications. The
                 sigmoid and tanh functions are S-shaped curves and were more common in earlier literature and
                 applications. See the image below for graphs showing the shape of these functions.</p>
             <p>Sigmoid<br/>\(g(x) = \frac{1}{1+exp({-x})}\)</p>
             <p>Tanh<br/>\(g(x) = tanh(x)\)</p>
             <p>ReLU<br/>\(g(x) = max(0, x)\)</p>
-            <p>We will use the ReLU activation function in our examples.</p>
+            <p>We will use the ReLU activation function in our examples, as it is simple to implement and understand but
+                works well in practice.</p>
             <div><img class="card-img-right image-fluid-svg"
                       src="/olliejday.github.io/posts/Intro-to-neural-networks-series/2-Prediction/images/activation-fns.svg"
                       alt="Diagram of graphs of common activation functions"></div>
@@ -173,31 +179,34 @@
             <p>As we touched on above, the output layer is a special case because its activations are directly used as
                 the outputs of the neural network. As a result, there are different functions that are typically used to
                 better match the desired outputs. As discussed previously, there are two main types of problems in deep
-                learning, regression where we model a set of real valued numbers and classification where we predict
+                learning, <strong>regression</strong> where we model a set of real valued numbers and <strong>classification</strong>
+                where we predict
                 which class of a finite set of classes the input belongs to.</p>
             <p>In classification, the sigmoid function above can be a good choice to predict binary variables such as
                 classification over two classes. The softmax function generalises the sigmoid to more variables and is
-                the most popular output function to predict over a set of classes. The softmax computes scalar output
-                \(i\) over a vector \(\textbf{x}\) as:<br/>\(o_i = g(\textbf{x})_i = \frac{exp(x_i)}{\sum_{j}
-                exp(x_j)}\)<br/>These values are interpreted as the neural networks' estimate of the probability
-                distribution over the classes. The softmax can also more rarely be used as internal activation functions
+                the most popular output function to predict over a set of classes. The scalar output at index
+                \(i\) of a softmax over a vector \(\textbf{x}\) is:<br/>\(o_i = g(\textbf{x})_i = \frac{exp(x_i)}{\sum_{j}
+                exp(x_j)}\)<br/>
+                Where \(o_i \) represents output of neuon \(i\) in the output layer. </br>
+                These values are interpreted as the neural networks' estimate of the <strong>probability
+                    distribution over the classes</strong>. The softmax can also more rarely be used as internal activation functions
                 to select between internal variables.</p>
-            <p>As an example, to detect faces, we may have \(n\) different classes representing \(n\) different people
+            <p>An example of classification is to detect faces, we may have \(n\) different classes representing \(n\) different people
                 we would like to identify.</p>
             <p>In regression, it is common to only compute the weighted sum and add the bias with no activation
-                function. We call this a linear activation. This is used as many other activation functions considered
+                function. We call this a <strong>linear activation</strong>. This is used as many other activation functions considered
                 restrict the output range, so not all numbers can be predicted. A linear activation, however, can
                 predict values unconstrained.</p>
-            <p>As an example, in finance we might like to predict the value of some shares and this could be done by
-                regression on the stock value.</p>
-            <p>These output activation functions also have nice probabilistic interpretations as models of the data, see
+            <p>As an example of regression, we might like to predict the value of some products and this could be done by
+                regression on their market price.</p>
+            <p>These output activation functions also have nice probabilistic interpretations as models of the data, but this is beyond our scope in this post, see
                 the Deep Learning by Ian Goodfellow, Yoshua Bengio and Aaron Courville (2016).</p>
             <p><strong>EXAMPLE: NEURON</strong></p>
             <p>To show this more clearly, let's give an example of the three stages in the activation of a neuron. We'll
                 use a simple toy example to clearly demonstrate the computation.</p>
             <p>We will take a simple first input layer and compute a neuron in the second layer. Let the inputs be
                 \(\textbf{x} = [1, 2, 3]^\intercal\), the weights from the input layer to first neuron in the second
-                layer be \(\textbf{w}^1_1= [1, 0, -1]^\intercal\) and the bias on the first layer to be \(b^1_1 =
+                layer be \(\textbf{w}^1_1= [1, 0, -1]^\intercal\) and the bias on our neuron in the second to be \(b^1_1 =
                 4\).</p>
             <p>Then, for the input activation we simply set to the value of the data.</p>
             <p>\(\textbf{a}^1 = \textbf{x} = [1, 2, 3]^\intercal\)</p>
@@ -217,19 +226,20 @@
                 \(i\), we are computing \(z^{i}_{k} = \textbf{w}^{i-1}_k \cdot \textbf{a}^{i-1} + b^{i-1}_k\) for each
                 neuron \(k\) in the layer. This turns out to be a computation that can again be conveniently expressed
                 in notation and more easily and efficiently be implemented on a computer using another operation, the
-                matrix vector product. Extending our notation, let \(\textbf{z}^i\) be the weighed sum and added bias
+                matrix vector product. Extending our notation, let \(\textbf{z}^i\) be the vector of weighed sums and added biases
                 for layer \(i\), \(\textbf{b}^{i}\) be the vector of biases for layer \(i+1\) and \(W^{i}\) be the
                 matrix of weights from layer \(i\) to layer \(i+1\) with rows as the weight vectors \(\textbf{w}^i_k\).
-                Then we have that the whole layer of neuron outputs can be computed in one go as:</p>
+                Then we have that the whole layer of neuron outputs can be computed in one go, using a matrix vector product
+                on weights and activations as:</p>
             <p>\(\textbf{z}^i = W^{i-1}\textbf{a}^{i-1} + \textbf{b}^{i-1}\)</p>
             <p>We also extend our activation functions to apply element wise to each element of the vector of weighted
                 sums.</p>
             <p>\(g(\textbf{z}^i) = [g(z^i_1), g(z^i_2), ..., g(z^i_j), ...]^\intercal\)</p>
             <p>With these two operations, we can express the computation of a layer from the activations of the previous
                 layer in one line.</p>
-            <p>\(\textbf{a}^{i+1} = g(W^i\textbf{a}^i + \textbf{b}^i)\)</p>
+            <p>\(\textbf{a}^{i} = g(W^{i-1}\textbf{a}^{i-1} + \textbf{b}^{i-1})\)</p>
             <p><strong>NETWORK</strong></p>
-            <p>We now have all that we need to compute the prediction in a neural network. Given an input data example,
+            <p>We now have all that we need to compute the prediction in a full neural network. Given an input data example,
                 \(\textbf{x}\), we set the input layer \(\textbf{a}^1\) to this data example \(\textbf{x}\).</p>
             <p>\(\textbf{a}^{1} = \textbf{x}\)</p>
             <p>Then for each layer in the neural network we compute the activations from the previous layer.</p>
