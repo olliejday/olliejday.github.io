@@ -80,7 +80,9 @@
 
             <!-- TODO - link to first post in text -->
             <p><strong>INTRODUCTION</strong></p>
-            <p>Having given the intuitions and overview of deep learning in the first post, we now continue to explore
+            <p>Having given the intuitions and overview of deep learning in the <a
+                    href="posts/Intro-to-neural-networks-series/1-Introduction/intro-nn.html">
+                first post</a>, we now continue to explore
                 in more detail how neural networks compute their outputs. Starting from the most basic unit we develop
                 the computation of layers and the whole network. Along the way, we build up a better idea of how neural
                 networks work, and learn some tricks that improve the efficiency of the computation.</p>
@@ -107,7 +109,8 @@
                 1 of the network.</p>
             <p>In formal notation, let an input data example \(\textbf{x}\) be an \(m\) dimensional vector, then
                 \(x_{j}\) is
-                feature \(j\) of this input data example. Also, let the notation \(\textbf{a}^{i}\) be the activations of
+                feature \(j\) of this input data example. Also, let the notation \(\textbf{a}^{i}\) be the activations
+                of
                 layer \(i\)
                 and \(a^{i}_{j} \) be the activation of neuron \(j\) in layer \(i\). Then the input layer neurons'
                 activations set to the input data \(\textbf{x}\), simply \(\textbf{a}^{1} = \textbf{x}\), therefore
@@ -116,7 +119,8 @@
                 similarly to those
                 in a hidden layer but are not fed into another layer, the values are used as the outputs of the
                 model.</p>
-            <p>We said previously that a neuron takes as input the activations of the previous layer and computes its
+            <p>We said <a href="posts/Intro-to-neural-networks-series/1-Introduction/intro-nn.html">previously</a> that
+                a neuron takes as input the activations of the previous layer and computes its
                 output as follows:</p>
             <ol><strong>
                 <li>A weighted sum of the activations</li>
@@ -133,7 +137,8 @@
             <p>Next, we add the bias (2). Each neuron has a bias that is learned similarly to the weights between
                 neurons. However, the bias is simply added to the weighted sum from (1)</p>
             <p>Concretely, let \(z^{i}_{k}\) be the result of the weighted sum and adding the bias for neuron \(k\) in
-                layer \(i\). Further, let \(w^{i}_{j, k}\) be the weight from neuron \(j\) in layer \(i\) to neuron \(k\)
+                layer \(i\). Further, let \(w^{i}_{j, k}\) be the weight from neuron \(j\) in layer \(i\) to neuron
+                \(k\)
                 in layer \(i+1\) and \(b^{i}_{k}\) be the bias for neuron \(k\) in layer \(i+1\), note we have these
                 indexed
                 by the previous layer as this keeps the indices consistent. Then we compute:</p>
@@ -159,7 +164,8 @@
 
             <p><br/><strong>ACTIVATION FUNCTION</strong></p>
             <p>Now we will look in more detail at activation functions. We mentioned an example activation function in
-                the first post, the sigmoid function. This was one of the early adopted activation functions and it has
+                the <a href="posts/Intro-to-neural-networks-series/1-Introduction/intro-nn.html">first post</a>, the
+                sigmoid function. This was one of the early adopted activation functions and it has
                 nice theoretical properties. An ANN with even a single hidden layer containing a large enough number of
                 sigmoid units can approximate any continuous function on a compact region of the network&rsquo;s input
                 space to any degree of accuracy (Cybenko, 1989). However, these results apply not only to this specific
@@ -185,14 +191,18 @@
             <p><strong>OUTPUT LAYER ACTIVATION FUNCTIONS</strong></p>
             <p>As we touched on above, the output layer is a special case because its activations are directly used as
                 the outputs of the neural network. As a result, there are different functions that are typically used to
-                better match the desired outputs. As discussed previously, there are two main types of problems in deep
+                better match the desired outputs. As discussed <a <a
+                        href="posts/Intro-to-neural-networks-series/1-Introduction/intro-nn.html">previously</a>, there
+                are two main types of problems in deep
                 learning, <strong>regression</strong> where we model a set of real-valued numbers and <strong>classification</strong>
                 where we predict
                 which class of a finite set of classes the input belongs to.</p>
             <p>In classification, the sigmoid function above can be a good choice to predict binary variables such as
-                classification over two classes. The <strong>softmax</strong> function generalises the sigmoid to more variables and is
+                classification over two classes. The <strong>softmax</strong> function generalises the sigmoid to more
+                variables and is
                 the most popular output function to predict over a set of classes.
-                </br> Introducing some notation for the outputs, let \(\textbf{o}\) be the vector of outputs, with scalar outputs of a neuron
+                </br> Introducing some notation for the outputs, let \(\textbf{o}\) be the vector of outputs, with
+                scalar outputs of a neuron
                 \(i\) being \(o_i\). Let \(h(\textbf{u})\) be the output activation function on the
                 vector of inputs \(\textbf{u}\), then let \(h(\textbf{u})_i\) be the output at
                 index \(i\) of the output function.</p>
@@ -202,7 +212,7 @@
                 exp(u_j)}\)</p>
             <p>
                 These values are interpreted as the neural networks' estimate of the <strong>probability
-                    distribution over the classes</strong>. The softmax can also more rarely be used as internal
+                distribution over the classes</strong>. The softmax can also more rarely be used as internal
                 activation functions
                 to select between internal variables.</p>
             <p>An example of classification is to detect faces, we may have \(n\) different classes representing \(n\)
@@ -212,7 +222,8 @@
                 function. We call this a <strong>linear activation</strong>. This is used as many other activation
                 functions that we considered
                 restrict the output range, so not all numbers can be predicted. A linear activation, however, can
-                predict values unconstrained. If we have \(n\) layers in our neural network, the outputs under linear activation are:</p>
+                predict values unconstrained. If we have \(n\) layers in our neural network, the outputs under linear
+                activation are:</p>
             <p>\(\textbf{o} = \textbf{z}^n = W^{n-1}\textbf{a}^{n-1} + \textbf{b}^{n-1}\)</p>
             <p>As an example of regression, we might like to predict the value of some products and this could be done
                 by
@@ -270,8 +281,10 @@
                 softmax or linear activation, that is the last layer in the network. Let \(\textbf{o}\) be the vector of
                 outputs, also without loss of generality let's say we have \(n\) layers. Our final output layer is
                 then:</p>
-            <p>Regression (linear activation)<br/>\(\textbf{o} = \textbf{z}^{n} = W^{n-1}\textbf{a}^{n-1} + \textbf{b}^{n-1}\)</p>
-            <p>Classification (softmax)<br/>\(\textbf{o} = \textbf{a}^{n} = h(\textbf{z}^n) = h(W^{n-1}\textbf{a}^{n-1} + \textbf{b}^{n-1})\)</p>
+            <p>Regression (linear activation)<br/>\(\textbf{o} = \textbf{z}^{n} = W^{n-1}\textbf{a}^{n-1} +
+                \textbf{b}^{n-1}\)</p>
+            <p>Classification (softmax)<br/>\(\textbf{o} = \textbf{a}^{n} = h(\textbf{z}^n) = h(W^{n-1}\textbf{a}^{n-1}
+                + \textbf{b}^{n-1})\)</p>
             <p><strong>EXAMPLE: NETWORK</strong></p>
             <p>Now we will run a full example of a small neural network to demonstrate the full prediction using this
                 layer-wise notation. The architecture is illustrated below.</p>
@@ -301,7 +314,8 @@
             <p>Now, for a regression problem, these could be used as the output values for a linear activation. For a
                 classification problem, we could apply the softmax function.</p>
             <p>Regression<br/>\(\textbf{o} = \textbf{a}^4 = \textbf{z}^4\)</p>
-            <p>Classification<br/>\(\textbf{o} = \textbf{a}^4 = h(\textbf{z}^4) = softmax(\textbf{z}^4) = [0.016685, 0.01603,
+            <p>Classification<br/>\(\textbf{o} = \textbf{a}^4 = h(\textbf{z}^4) = softmax(\textbf{z}^4) = [0.016685,
+                0.01603,
                 0.967285]^\intercal\)</p>
             <p>Here the regression outputs would likely be used as they are estimates of some desired output values. In
                 classification, however, to retrieve a final class we either sample probabilistically or take the
@@ -319,18 +333,20 @@
                 can get involved with these projects! We won't need much computing power to run these but it's good to
                 get the hang of these great tools.</p>
             <strong>
-            <p>You can find the <a
-                    href="http://colab.research.google.com/github/olliejday/article-projects/blob/master/intro-nn-series/2-Prediction/nn-prediction-project.ipynb">project
-                notebook here</a>.</p>
-                </strong>
+                <p>You can find the <a
+                        href="http://colab.research.google.com/github/olliejday/article-projects/blob/master/intro-nn-series/2-Prediction/nn-prediction-project.ipynb">project
+                    notebook here</a>.</p>
+            </strong>
             <p>We strongly encourage you to give this a try! You'll find you learn lots from implementing this and it
                 will really give you a good understanding of the forward pass stage. There are testing functions so you
                 can see how you do. Once you've had a go try comparing to how we answered the project, in the <a
                         href="https://colab.research.google.com/github/olliejday/article-projects/blob/master/intro-nn-series/2-Prediction/nn-prediction-solutions.ipynb">solution
                     notebook here</a>.</p>
             <p><strong>SUMMARY</strong></p>
-            <p>In this post, we have expanded the details of prediction on the neural network. We developed the ideas and
-                intuitions from the first post into the formal maths and theory of the forward propagation. We built up
+            <p>In this post, we have expanded the details of prediction on the neural network. We developed the ideas
+                and
+                intuitions from the <a href="posts/Intro-to-neural-networks-series/1-Introduction/intro-nn.html">first
+                    post</a> into the formal maths and theory of the forward propagation. We built up
                 understanding from a single neuron unit into layers and a whole network of computation. We saw some
                 examples of activation functions and key output activation functions for regression and classification.
                 Implementing this maths in code we saw how to build the forward pass in a neural network.</p>
@@ -340,24 +356,29 @@
             <p><strong>NOTATION</strong></p>
             <p>This is a handy notation guide, that might help you to recall some of the symbols used that we define in
                 the text.</p>
-            <p> Superscripts represent layer numbers, \(\textbf{a}^i\) is the vector of activations for layer \(i\). Subscripts
+            <p> Superscripts represent layer numbers, \(\textbf{a}^i\) is the vector of activations for layer \(i\).
+                Subscripts
                 represent indices that select neurons within a layer, such as \(o_j\) is the output of neuron \(j\).
-                Note we use 1 as the 1st index. For example, \(\textbf{a}^1\) is the vector of activations of the first layer, the input layer.</p>
+                Note we use 1 as the 1st index. For example, \(\textbf{a}^1\) is the vector of activations of the first
+                layer, the input layer.</p>
             \(\textbf{u}\) - arbitrary vector, used as the notation for arbitrary input to functions<br/>
-                \(u\) - arbitrary scalar, used as the notation for arbitrary input to functions<br/>
+            \(u\) - arbitrary scalar, used as the notation for arbitrary input to functions<br/>
             \(\textbf{x}\) - vector of an input data example<br/>
             \(x_{j}\) - feature \(j\) of an input example<br/>
             \(a^{i}_{j}\) - activation of layer \(i\), neuron \(j\)
             <br/>\(\textbf{a}^{i}\) - vector of activations of layer \(i\) with elements of vector \(a^{i}_{j}\)
             <br/>\(z^{i}_{j}\) - weighted sum and added bias (before activation function) of layer \(i\), neuron \(j\)
             <br/>\(\textbf{z}^{i}\) - vector of weighted sums and added biases (before activation function)
-            of layer \(i\) with elements of the vector \(z^{i}_{j}\)<br/>\(o_{j}\) - output layer activation of neuron \(j\) <br/>\(\textbf{o}\) - vector of
-            outputs (activations of the last layer) with vector elements \(o_{j}\)<br/>\(w^{i}_{j, k}\) - weight from neuron \(j\) in layer \(i\) to
+            of layer \(i\) with elements of the vector \(z^{i}_{j}\)<br/>\(o_{j}\) - output layer activation of neuron
+            \(j\) <br/>\(\textbf{o}\) - vector of
+            outputs (activations of the last layer) with vector elements \(o_{j}\)<br/>\(w^{i}_{j, k}\) - weight from
+            neuron \(j\) in layer \(i\) to
             neuron \(k\) in layer \(i+1\) <br/>\(\textbf{w}^{i}_k\) - vector of weights from layer \(i\) to neuron
             \(k\) in layer \(i+1\), elements of this vector are \(w^{i}_{j, k}\)
             <br/>\(W^i\) - matrix of weights from layer \(i\) to layer \(i+1\), rows are
             \(\textbf{w}^{i}_k\) for each \(k\)<br/>\(b^{i}_{j}\) - bias for neuron \(j\) in layer \(i+1\) <br/>\(\textbf{b}^{i}\)
-            - vector of biases in layer \(i+1\), vector elements \(b^{i}_{j}\) <br/>\(g(x)\) - activation function</br>\(h(\textbf{x})\) - output activation
+            - vector of biases in layer \(i+1\), vector elements \(b^{i}_{j}\) <br/>\(g(x)\) - activation function</br>
+            \(h(\textbf{x})\) - output activation
             function</br>\(h(\textbf{x})_i\) - output activation function at index i</p>
             <p><br/><strong>SOURCES</strong></p>
             <p>Stanford UFLDL Tutorial<br/>Deep Learning by Ian Goodfellow, Yoshua Bengio and Aaron Courville (2016)</p>
