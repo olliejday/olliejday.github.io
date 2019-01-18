@@ -2587,9 +2587,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.0325283"
-     inkscape:cx="468.96947"
-     inkscape:cy="397.98285"
+     inkscape:zoom="1.3390062"
+     inkscape:cx="450.92493"
+     inkscape:cy="256.8609"
      inkscape:current-layer="layer2"
      id="namedview8243"
      showgrid="false"
@@ -2623,7 +2623,18 @@
        height="155.57153"
        x="1.7915164"
        y="53.312233" />
-  </g>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4603"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:FreeSans;font-style:normal;font-weight:normal;font-size:40px;line-height:125%;letter-spacing:0px;word-spacing:0px;-inkscape-font-specification:FreeSans;font-stretch:normal;font-variant:normal;"><flowRegion
+         id="flowRegion4605"><rect
+           id="rect4607"
+           width="38.83477"
+           height="52.277576"
+           x="-273.33704"
+           y="-242.24486"
+           style="-inkscape-font-specification:FreeSans;font-family:FreeSans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;" /></flowRegion><flowPara
+         id="flowPara4609"></flowPara></flowRoot>  </g>
   <g
      inkscape:groupmode="layer"
      id="layer3"
@@ -2874,7 +2885,7 @@
        r="11.00491" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:'sans-serif\'';letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;-inkscape-font-specification:'sans-serif\'';font-stretch:normal;font-variant:normal;"
        x="21.063782"
        y="84.494804"
        id="text12910-7"
@@ -2883,10 +2894,10 @@
          id="tspan12912-5"
          x="21.063782"
          y="84.494804"
-         style="font-size:11.59043026px">w1</tspan></text>
+         style="font-size:11.59043026px;-inkscape-font-specification:FreeSans;font-family:FreeSans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">w1</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:'sans-serif\'';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;-inkscape-font-specification:'sans-serif\'';font-stretch:normal;font-variant:normal;"
        x="81.182701"
        y="85.489426"
        id="text12960"
@@ -2895,10 +2906,10 @@
          id="tspan12962"
          x="81.182701"
          y="85.489426"
-         style="font-size:8.27887917px">f(W)</tspan></text>
+         style="font-size:8.27887917px;-inkscape-font-specification:FreeSans;font-family:FreeSans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">f(W)</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:'sans-serif\'';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;-inkscape-font-specification:'sans-serif\'';font-stretch:normal;font-variant:normal;"
        x="84.772369"
        y="77.898651"
        id="text12960-8"
@@ -2907,10 +2918,10 @@
          id="tspan12962-0"
          x="84.772369"
          y="77.898651"
-         style="font-size:8.27887917px">x1</tspan></text>
+         style="font-size:8.27887917px;-inkscape-font-specification:FreeSans;font-family:FreeSans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">x1</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:'sans-serif\'';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;-inkscape-font-specification:'sans-serif\'';font-stretch:normal;font-variant:normal;"
        x="82.538704"
        y="120.87118"
        id="text12960-4"
@@ -2919,10 +2930,10 @@
          id="tspan12962-2"
          x="82.538704"
          y="120.87118"
-         style="font-size:8.27887917px">f(W)</tspan></text>
+         style="font-size:8.27887917px;-inkscape-font-specification:FreeSans;font-family:FreeSans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">f(W)</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:'sans-serif\'';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;-inkscape-font-specification:'sans-serif\'';font-stretch:normal;font-variant:normal;"
        x="86.12838"
        y="113.28041"
        id="text12960-8-9"
@@ -2931,10 +2942,10 @@
          id="tspan12962-0-6"
          x="86.12838"
          y="113.28041"
-         style="font-size:8.27887917px">x2</tspan></text>
+         style="font-size:8.27887917px;-inkscape-font-specification:FreeSans;font-family:FreeSans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">x2</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:'sans-serif\'';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;-inkscape-font-specification:'sans-serif\'';font-stretch:normal;font-variant:normal;"
        x="85.034225"
        y="156.01646"
        id="text12960-1"
@@ -2943,10 +2954,10 @@
          id="tspan12962-04"
          x="85.034225"
          y="156.01646"
-         style="font-size:8.27887917px">f(W)</tspan></text>
+         style="font-size:8.27887917px;-inkscape-font-specification:FreeSans;font-family:FreeSans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">f(W)</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:'sans-serif\'';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;-inkscape-font-specification:'sans-serif\'';font-stretch:normal;font-variant:normal;"
        x="88.623894"
        y="148.42567"
        id="text12960-8-2"
@@ -2955,10 +2966,10 @@
          id="tspan12962-0-2"
          x="88.623894"
          y="148.42567"
-         style="font-size:8.27887917px">x3</tspan></text>
+         style="font-size:8.27887917px;-inkscape-font-specification:FreeSans;font-family:FreeSans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">x3</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:'sans-serif\'';letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;-inkscape-font-specification:'sans-serif\'';font-stretch:normal;font-variant:normal;"
        x="23.655968"
        y="119.45247"
        id="text12910-7-2"
@@ -2967,10 +2978,10 @@
          id="tspan12912-5-0"
          x="23.655968"
          y="119.45247"
-         style="font-size:11.59043026px">w2</tspan></text>
+         style="font-size:11.59043026px;-inkscape-font-specification:FreeSans;font-family:FreeSans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">w2</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:'sans-serif\'';letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;-inkscape-font-specification:'sans-serif\'';font-stretch:normal;font-variant:normal;"
        x="25.735569"
        y="155.63754"
        id="text12910-7-5"
@@ -2979,10 +2990,10 @@
          id="tspan12912-5-5"
          x="25.735569"
          y="155.63754"
-         style="font-size:11.59043026px">w3</tspan></text>
+         style="font-size:11.59043026px;-inkscape-font-specification:FreeSans;font-family:FreeSans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">w3</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:'sans-serif\'';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;-inkscape-font-specification:'sans-serif\'';font-stretch:normal;font-variant:normal;"
        x="138.38071"
        y="85.517944"
        id="text12960-2"
@@ -2991,10 +3002,10 @@
          id="tspan12962-9"
          x="138.38071"
          y="85.517944"
-         style="font-size:8.27887917px">f(X)</tspan></text>
+         style="font-size:8.27887917px;-inkscape-font-specification:FreeSans;font-family:FreeSans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">f(X)</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:'sans-serif\'';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;-inkscape-font-specification:'sans-serif\'';font-stretch:normal;font-variant:normal;"
        x="141.97038"
        y="77.927177"
        id="text12960-8-0"
@@ -3003,10 +3014,10 @@
          id="tspan12962-0-28"
          x="141.97038"
          y="77.927177"
-         style="font-size:8.27887917px">y1</tspan></text>
+         style="font-size:8.27887917px;-inkscape-font-specification:FreeSans;font-family:FreeSans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">y1</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:'sans-serif\'';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;-inkscape-font-specification:'sans-serif\'';font-stretch:normal;font-variant:normal;"
        x="140.25237"
        y="120.87118"
        id="text12960-3"
@@ -3015,10 +3026,10 @@
          id="tspan12962-8"
          x="140.25237"
          y="120.87118"
-         style="font-size:8.27887917px">f(X)</tspan></text>
+         style="font-size:8.27887917px;-inkscape-font-specification:FreeSans;font-family:FreeSans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">f(X)</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:'sans-serif\'';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;-inkscape-font-specification:'sans-serif\'';font-stretch:normal;font-variant:normal;"
        x="143.84204"
        y="113.28041"
        id="text12960-8-04"
@@ -3027,10 +3038,10 @@
          id="tspan12962-0-0"
          x="143.84204"
          y="113.28041"
-         style="font-size:8.27887917px">y2</tspan></text>
+         style="font-size:8.27887917px;-inkscape-font-specification:FreeSans;font-family:FreeSans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">y2</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:'sans-serif\'';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;-inkscape-font-specification:'sans-serif\'';font-stretch:normal;font-variant:normal;"
        x="142.74789"
        y="155.1846"
        id="text12960-9"
@@ -3039,10 +3050,10 @@
          id="tspan12962-1"
          x="142.74789"
          y="155.1846"
-         style="font-size:8.27887917px">f(X)</tspan></text>
+         style="font-size:8.27887917px;-inkscape-font-specification:FreeSans;font-family:FreeSans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">f(X)</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:'sans-serif\'';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;-inkscape-font-specification:'sans-serif\'';font-stretch:normal;font-variant:normal;"
        x="146.33757"
        y="147.59384"
        id="text12960-8-96"
@@ -3051,10 +3062,10 @@
          id="tspan12962-0-25"
          x="146.33757"
          y="147.59384"
-         style="font-size:8.27887917px">y3</tspan></text>
+         style="font-size:8.27887917px;-inkscape-font-specification:FreeSans;font-family:FreeSans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">y3</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:'sans-serif\'';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;-inkscape-font-specification:'sans-serif\'';font-stretch:normal;font-variant:normal;"
        x="198.07068"
        y="86.349792"
        id="text12960-2-4"
@@ -3063,10 +3074,10 @@
          id="tspan12962-9-4"
          x="198.07068"
          y="86.349792"
-         style="font-size:8.27887917px;fill:#ffffff">f(Y)</tspan></text>
+         style="font-size:8.27887917px;fill:#ffffff;-inkscape-font-specification:FreeSans;font-family:FreeSans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">f(Y)</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:'sans-serif\'';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;-inkscape-font-specification:'sans-serif\'';font-stretch:normal;font-variant:normal;"
        x="199.99667"
        y="77.823196"
        id="text12960-8-0-9"
@@ -3075,10 +3086,10 @@
          id="tspan12962-0-28-9"
          x="199.99667"
          y="77.823196"
-         style="font-size:8.27887917px;fill:#ffffff">z1</tspan></text>
+         style="font-size:8.27887917px;fill:#ffffff;-inkscape-font-specification:FreeSans;font-family:FreeSans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">z1</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:'sans-serif\'';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;-inkscape-font-specification:'sans-serif\'';font-stretch:normal;font-variant:normal;"
        x="199.31844"
        y="120.92316"
        id="text12960-2-4-3"
@@ -3087,10 +3098,10 @@
          id="tspan12962-9-4-6"
          x="199.31844"
          y="120.92316"
-         style="font-size:8.27887917px;fill:#ffffff">f(Y)</tspan></text>
+         style="font-size:8.27887917px;fill:#ffffff;-inkscape-font-specification:FreeSans;font-family:FreeSans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">f(Y)</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:'sans-serif\'';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;-inkscape-font-specification:'sans-serif\'';font-stretch:normal;font-variant:normal;"
        x="201.24445"
        y="112.39658"
        id="text12960-8-0-9-0"
@@ -3099,10 +3110,10 @@
          id="tspan12962-0-28-9-5"
          x="201.24445"
          y="112.39658"
-         style="font-size:8.27887917px;fill:#ffffff">z2</tspan></text>
+         style="font-size:8.27887917px;fill:#ffffff;-inkscape-font-specification:FreeSans;font-family:FreeSans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">z2</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:'sans-serif\'';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;-inkscape-font-specification:'sans-serif\'';font-stretch:normal;font-variant:normal;"
        x="201.81396"
        y="155.65253"
        id="text12960-2-4-0"
@@ -3111,10 +3122,10 @@
          id="tspan12962-9-4-2"
          x="201.81396"
          y="155.65253"
-         style="font-size:8.27887917px;fill:#ffffff">f(Y)</tspan></text>
+         style="font-size:8.27887917px;fill:#ffffff;-inkscape-font-specification:FreeSans;font-family:FreeSans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">f(Y)</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:13.24620628px;line-height:125%;font-family:'sans-serif\'';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;-inkscape-font-specification:'sans-serif\'';font-stretch:normal;font-variant:normal;"
        x="203.73996"
        y="147.12593"
        id="text12960-8-0-9-9"
@@ -3123,10 +3134,10 @@
          id="tspan12962-0-28-9-4"
          x="203.73996"
          y="147.12593"
-         style="font-size:8.27887917px;fill:#ffffff">z3</tspan></text>
+         style="font-size:8.27887917px;fill:#ffffff;-inkscape-font-specification:FreeSans;font-family:FreeSans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;">z3</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:9.2879343px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:9.2879343px;line-height:125%;font-family:FreeSans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;-inkscape-font-specification:FreeSans;font-stretch:normal;font-variant:normal;"
        x="12.863564"
        y="176.51743"
        id="text13152"
@@ -3137,7 +3148,7 @@
          y="176.51743">W = [w1, w2, w3]'</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:9.28793526px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:9.28793526px;line-height:125%;font-family:FreeSans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;-inkscape-font-specification:FreeSans;font-stretch:normal;font-variant:normal;"
        x="13.726967"
        y="191.26387"
        id="text13152-3"
@@ -3148,7 +3159,7 @@
          y="191.26387">X = [x1, x2, x3]'</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:9.28793526px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:9.28793526px;line-height:125%;font-family:FreeSans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;-inkscape-font-specification:FreeSans;font-stretch:normal;font-variant:normal;"
        x="131.23961"
        y="177.44118"
        id="text13152-3-1"
@@ -3159,7 +3170,7 @@
          y="177.44118">Y = [y1, y2, y3]'</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:9.28793526px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:9.28793526px;line-height:125%;font-family:FreeSans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;-inkscape-font-specification:FreeSans;font-stretch:normal;font-variant:normal;"
        x="131.23961"
        y="190.96977"
        id="text13152-3-4"

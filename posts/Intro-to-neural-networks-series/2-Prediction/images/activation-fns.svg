@@ -15,7 +15,7 @@
    id="svg8239"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="neuron.svg">
+   sodipodi:docname="activation-fns.svg">
   <defs
      id="defs8241">
     <filter
@@ -2587,9 +2587,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.94682039"
-     inkscape:cx="420.35886"
-     inkscape:cy="231.64266"
+     inkscape:zoom="0.61392913"
+     inkscape:cx="761.89109"
+     inkscape:cy="-179.55162"
      inkscape:current-layer="layer2"
      id="namedview8243"
      showgrid="false"
@@ -2625,7 +2625,8 @@
        y="118.10433" />
     <g
        id="g4778"
-       transform="matrix(0.82579708,0,0,0.82579708,1.9731614,73.101199)">
+       transform="matrix(0.82579708,0,0,0.82579708,1.9731614,73.101199)"
+       style="">
       <path
          sodipodi:nodetypes="csc"
          inkscape:connector-curvature="0"
@@ -2677,7 +2678,8 @@
     </g>
     <g
        id="g4789"
-       transform="matrix(0.84757244,0,0,0.84757244,90.162398,7.6151576)">
+       transform="matrix(0.84757244,0,0,0.84757244,90.162398,7.6151576)"
+       style="">
       <path
          sodipodi:nodetypes="csc"
          inkscape:connector-curvature="0"
@@ -2729,7 +2731,8 @@
     </g>
     <g
        id="g4800"
-       transform="matrix(0.80351906,0,0,0.80351906,95.179467,26.961327)">
+       transform="matrix(0.80351906,0,0,0.80351906,95.179467,26.961327)"
+       style="">
       <path
          inkscape:connector-curvature="0"
          id="path4632"
@@ -2759,7 +2762,7 @@
     </g>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:11.28888893px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:11.28888893px;line-height:125%;font-family:FreeSans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;-inkscape-font-specification:FreeSans;font-stretch:normal;font-variant:normal;"
        x="33.447655"
        y="194.63969"
        id="text4807"
@@ -2770,7 +2773,7 @@
          y="194.63969">tanh(x)</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:11.28888893px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:11.28888893px;line-height:125%;font-family:FreeSans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;-inkscape-font-specification:FreeSans;font-stretch:normal;font-variant:normal;"
        x="114.98651"
        y="193.98013"
        id="text4811"
@@ -2781,7 +2784,7 @@
          y="193.98013">sigmoid(x)</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:11.28888893px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:11.28888893px;line-height:125%;font-family:FreeSans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;-inkscape-font-specification:FreeSans;font-stretch:normal;font-variant:normal;"
        x="207.95393"
        y="194.24649"
        id="text4815"
