@@ -86,7 +86,12 @@ body {
 
 .title-text {
   padding: 1em;
-  font-weight: 1000;
+  font-weight: 900;
+  font-family: monospace;
+}
+
+.sub-title-text {
+  font-family: monospace;
 }
 
 .body-text {
@@ -144,8 +149,19 @@ body {
  * Cards
  */
 
-.text-dark {
+.card-title {
   font-weight: 600;
+}
+
+.card-text {
+  font-family: monospace;
+}
+
+/*
+ * About sidebar
+ */
+.about-sidebar-text {
+    font-family: monospace;
 }
 
 /*
