@@ -80,7 +80,8 @@
 
             <p><h3>Introduction</h3><br/><br/>This algorithm comes from [1], a seminal work on deep
                 reinforcement learning. It builds on work in [2], to use artificial neural networks to approximate value
-                functions. It is evaluated on Atari games with raw image input. The core of DQN is a neural network that
+                functions. The main contribution is an one of the first deep learning model that successfully learns control
+                policies from images using reinforcement learning. The core of DQN is a neural network that
                 estimates the value of each action in a state. The policy is then to choose the action with maximum
                 value in each state encountered.<br/><br/><br/><h3>Overview</h3></p><br/><br/>
             <ul>
@@ -93,7 +94,9 @@
             <p>Uses experience replay. Experience, defined as \(e_t = (s_t,a_t,r_t,s_{t+1})\), is stored at each
                 timestep
                 into a replay memory. Samples are drawn randomly from memory to perform Q-learning
-                updates.<br/><br/><br/><h3>Key Equations</h3></p><br/><br/>
+                updates. Reduces non-stationarity and decorrelates updates.<br/><br/><br/>
+
+            <h3>Key Equations</h3></p><br/><br/>
             <p>The Bellman equation defining the optimal action-value function is the basic idea behind many
                 reinforcement learning algorithms:</p>
             <p>\(Q^*(s,a) = \mathbb{E}_{s'\sim P(\cdot|s,a)}\big[r + \gamma max_{a'}Q^*(s',a')|s,a\big]\)<br/><br/>Here
