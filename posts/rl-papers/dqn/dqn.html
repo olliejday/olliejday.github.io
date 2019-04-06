@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content=" Posts about artificial intelligence and machine learning.
+    A collection of insights, explanations and projects.">
+    <meta name="author" content="Ollie Day">
+    <link rel="icon" href="/olliejday.github.io/favicon.ico?">
+
+    <title>NN Prediction</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/olliejday.github.io/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+    <link href="/olliejday.github.io/blog.css" rel="stylesheet">
+
+    <!-- MathJax -->
+    <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" async></script>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/olliejday.github.io/index.html">Home</a>
+            </li>
+        </ul>
+    </div>
+    <div class="order-0 mx-auto">
+        <a href="/olliejday.github.io/index.html">
+            <img class="navbar-logo" src="/olliejday.github.io/assets/img/logo/logo.svg" alt="Logo: DAY">
+        </a>
+        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/olliejday.github.io/about.html">About</a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="container-fluid title-container">
+            <div class="row mb-2">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-10">
+
+                    <h1 class="mb-auto title-text">
+                        Deep Q-Networks (DQN)
+                    </h1>
+                    <!-- TODO: Make this link to the series -->
+                    <strong class="d-inline-block mb-2 rl-series sub-title-text">Reinforcement Learning</strong>
+                    <div class="mb-1 text-muted sub-title-text">Jan 2019</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main role="main" class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+        </div>
+
+        <div class="col-md-7 body-text">
+
+            <p><h3>Introduction</h3><br/><br/>This algorithm comes from [1], a seminal work on deep
+                reinforcement learning. It builds on work in [2], to use artificial neural networks to approximate value
+                functions. It is evaluated on Atari games with raw image input. The core of DQN is a neural network that
+                estimates the value of each action in a state. The policy is then to choose the action with maximum
+                value in each state encountered.<br/><br/><br/><h3>Overview</h3></p><br/><br/>
+            <ul>
+                <li>Off policy.</li>
+                <li>Model-free.</li>
+                <li>Discrete action spaces.</li>
+            </ul>
+            <p>Learns a convolutional neural network action-value function approximator, called a Q-network. The
+                Q-network takes a sequence of images and outputs estimated values for each action in this state.</p>
+            <p>Uses experience replay. Experience, defined as \(e_t = (s_t,a_t,r_t,s_{t+1})\), is stored at each
+                timestep
+                into a replay memory. Samples are drawn randomly from memory to perform Q-learning
+                updates.<br/><br/><br/><h3>Key Equations</h3></p><br/><br/>
+            <p>The Bellman equation defining the optimal action-value function is the basic idea behind many
+                reinforcement learning algorithms:</p>
+            <p>\(Q^*(s,a) = \mathbb{E}_{s'\sim P(\cdot|s,a)}\big[r + \gamma max_{a'}Q^*(s',a')|s,a\big]\)<br/><br/>Here
+                it
+                is used to train a Q-network by minimising the loss:</p>
+            <p>\(L_i(\theta_i) = \mathbb{E}_{s,a\sim \rho(\cdot)} \big[(y_i-Q(s,a;\theta_i))^2\big]\)</p>
+            <p>Where \(y_i = \mathbb{E}_{s'\sim P(\cdot|s,a)}\big[r + \gamma max_{a'}Q(s',a';\theta_{i-1})|s,a\big]\) is
+                the target for iteration \(i\), \(\rho(s,a)\) is the behaviour distribution used to collect data and
+                \(\theta_i\) is the Q-network weights at iteration \(i\).</p>
+            <p>Differentiating the loss function with respect to the weights we get the DQN update:</p>
+            <p>\(\nabla_{\theta_i}L_i(\theta_i) = \mathbb{E}_{s,a\sim \rho(\cdot); s'\sim P(\cdot|s,a)}\Big[\big(r +
+                \gamma max_{a'}Q(s',a';\theta_{i-1}) -
+                Q(s,a;\theta_i)\big)\nabla_{\theta_i}Q(s,a;\theta_i)\Big]\)<br/><br/><br/>
+
+                <h3>Pseudocode</h3></p><br/>
+
+            <p>Taken from [1].</p><br/>
+            <p>\(\textbf{Algorithm 1} \text{ Deep Q-learning with Experience Replay}\)</p>
+                \(\text{Initialize replay memory } \mathcal{D} \text{ to capacity N} \\
+                    \text{Initialize action-value function Q with random weights} \\
+                    \textbf{for} \text{ episode = 1, M} \textbf{ do}\)</p>
+            <p>\(\quad \text{Initialise sequence $s_1=\{x_1\}$ and preprocessed sequenced $\phi_1=\phi(s1)$ } \\
+                \quad \textbf{for} \text{ $t = 1, T$} \textbf{ do} \\
+                \quad \quad \text{With probability $\epsilon$ select a random action $a_t$} \\
+                \quad \quad \text{otherwise select $a_t = max_aQ(\phi(s_t),a;\theta)$} \\
+
+                \quad \quad \text{Execute action $a_t$ in emulator and observe reward $r_t$ and image $x_{t+1}$} \\
+                \quad \quad \text{Set $s_{t+1} = s_t,a_t,x_{t+1}$ and preprocess $\phi_{t+1}=\phi(s_{t+1})$} \\
+                \quad \quad \text{Store transition $(\phi_t,a_t,r_t,\phi_{t+1})$ in $\mathcal{D}$} \\
+                \quad \quad \text{Sample random minibatch of transitions$(\phi_j,a_j,r_j,\phi_{j+1})$ from $\mathcal{D}$} \\
+                \quad \quad \text{Set }
+                y_j = \begin{cases} r_j,&amp; \text{for terminal } \phi_{j+1} \\
+                r_j + \gamma max_{a'}Q(\phi_{j+1},a';\theta),&amp; \text{for non-terminal } \phi_{j+1}
+                \end{cases} \\
+                \quad \quad \text{Perform a gradient descent step on $(y_j-Q(\phi_j,a_j;\theta))^2$ according to DQN update equation} \\
+                \quad \textbf{end for} \\
+                \textbf{end for} \)
+            <br/><br/>
+            <h3>Sources</h3></p><br/><br/>
+            <p>[1] Playing Atari with Deep Reinforcement Learning, Mnih et al, 2013.</p>
+            <p>[2] Temporal difference learning and TD-Gammon, Tesauro, 1995.<br/><br/></p>
+
+        </div>
+
+    </div><!-- /.row -->
+
+</main><!-- /.container -->
+</div>
+
+<footer class="blog-footer">
+    <p>Copyright 2018-2019 <a href="https://www.github.com/olliejday">@olliejday</a>.
+    </p>
+    <p>
+        <a href="#">Back to top</a>
+
+    </p>
+</footer>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/olliejday.github.io/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+<script src="/olliejday.github.io/assets/js/vendor/popper.min.js"></script>
+<script src="/olliejday.github.io/dist/js/bootstrap.min.js"></script>
+<script src="/olliejday.github.io/assets/js/vendor/holder.min.js"></script>
+<script>
+    Holder.addTheme('thumb', {
+        bg: '#55595c',
+        fg: '#eceeef',
+        text: 'Thumbnail'
+    });
+</script>
+</body>
+</html>
