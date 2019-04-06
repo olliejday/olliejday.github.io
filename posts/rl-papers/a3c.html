@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content=" Posts about artificial intelligence and machine learning.
+    A collection of insights, explanations and projects.">
+    <meta name="author" content="Ollie Day">
+    <link rel="icon" href="/olliejday.github.io/favicon.ico?">
+
+    <title>A3C</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/olliejday.github.io/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+    <link href="/olliejday.github.io/blog.css" rel="stylesheet">
+
+    <!-- MathJax -->
+    <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" async></script>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/olliejday.github.io/index.html">Home</a>
+            </li>
+        </ul>
+    </div>
+    <div class="order-0 mx-auto">
+        <a href="/olliejday.github.io/index.html">
+            <img class="navbar-logo" src="/olliejday.github.io/assets/img/logo/logo.svg" alt="Logo: DAY">
+        </a>
+        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/olliejday.github.io/about.html">About</a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="container-fluid title-container">
+            <div class="row mb-2">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-10">
+
+                    <h1 class="mb-auto title-text">
+                        Asynchronous Advantage Actor-Critic (A3C)
+                    </h1>
+                    <!-- TODO: Make this link to the series -->
+                    <strong class="d-inline-block mb-2 rl-series sub-title-text">Reinforcement Learning</strong>
+                    <div class="mb-1 text-muted sub-title-text">April 2019</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main role="main" class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+        </div>
+
+        <div class="col-md-7 body-text">
+            <p>
+            <h3>Introduction</h3><br/><br/>This algorithm comes from [1] where asynchronous gradient descent
+            is used to train neural network controllers. They apply the framework to value based methods too, but
+            the actor-critic algorithm they present (A3C) is the best performing. The key idea is to use multiple,
+            parallel actor-learners each running on separate instances of the environment. Since each actor-learner
+            experiences different states, this approach decorrelates the data into a more stationary process. This
+            has a stabilising effect on training, as an alternative to experience replay. In contrast to experience
+            replay, the asynchronous framework works on policy, affording use with actor-critic methods as explored
+            in the A3C algorithm covered here.<br/><br/><br/>
+            <h3>Overview</h3><br/><br/>
+            <ul>
+                <li>Policy gradient method</li>
+                <li>Model-free</li>
+                <li>Runs multiple asynchronous actor-learners at once</li>
+                <li>On-policy</li>
+                <li>Discrete or continuous action spaces.</li>
+            </ul>
+            <p>For discrete the network has to output layers: a policy head with a softmax unit for each action and a
+                value head with a single linear output representing state value. <br/>For continuous actions they use
+                two separate networks: a policy network outputs the mean and covariance of a Gaussian distribution that
+                can be sampled for actions and a value network that evaluates the state values.</p>
+            <p>Can employ different exploration policies on each actor-learner to encourage diversity.</p>
+            <p>Same architecture as DQN, or adding LSTM cells.<br/><br/><br/>
+            <h3>Key Equations</h3><br/><br/></p>
+            <p>A3C learns a policy \(\pi(a_t|s_t;\theta)\) and a state value function estimate \(V(s_t|\theta_v)\).</p>
+            <p>The A3C policy follows with the policy gradient, an unbiased estimate of the gradient of the expected
+                return \(\nabla_{\theta}\mathbb{E}[G_t]\), where \(G_t\) is the sum of rewards from time t onwards (see
+                [2]):</p>
+            <p>\(\nabla_{\theta'}log\pi(a_t|s_t;\theta')A(s_t,a_t;\theta,\theta_v)\)</p>
+            <p>Where \(A(s_t,a_t;\theta,\theta_v)\) is the estimate of the advantage function:</p>
+            <p>\(\sum_{i=0}^{k-1}\gamma^ir_{t+i}+\gamma^kV(s_{t+k};\theta_v) - V(s_t;\theta_v)\)</p>
+            <p><br/>The value network is updated using the n-step TD update:</p>
+            <p>\(\nabla_{\theta_v}\big(\sum_{i=0}^{k-1}\gamma^ir_{t+i}+\gamma^kV(s_{t+k};\theta_v) -
+                V(s_t;\theta_v)\big)^2\)</p>
+            <p>Or if a terminal state is reached:</p>
+            <p>\(\nabla_{\theta_v}\big(\sum_{i=0}^{T}\gamma^ir_{t+i} - V(s_t;\theta_v)\big)^2\)</p>
+            <p>These updates serve to make the value network match the returns (sums of rewards).</p>
+            <br/><br/>
+            <h3>Pseudocode</h3><br/>
+            <p>Taken from [1].</p><br/>
+            <div>
+            <img
+                    alt="Pseudocode for A3C algorithm"
+                    class="card-img-right image-fluid-svg"
+                    src="/olliejday.github.io/posts/rl-papers/images/a3c_pseudocode.png"/>
+            </div>
+            </p><br/><br/>
+            <h3>Sources</h3><br/><br/>
+            <p>[1] Asynchronous Methods for Deep Reinforcement Learning, Mnih et al, 2016.<br/>[2] Simple statistical
+                gradient-following algorithms for connectionist reinforcement learning, Williams, R.J., 1992.</p>
+            <p>&nbsp;</p>
+        </div>
+
+    </div><!-- /.row -->
+
+</main><!-- /.container -->
+</div>
+
+<footer class="blog-footer">
+    <p>Copyright 2018-2019 <a href="https://www.github.com/olliejday">@olliejday</a>.
+    </p>
+    <p>
+        <a href="#">Back to top</a>
+
+    </p>
+</footer>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/olliejday.github.io/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+<script src="/olliejday.github.io/assets/js/vendor/popper.min.js"></script>
+<script src="/olliejday.github.io/dist/js/bootstrap.min.js"></script>
+<script src="/olliejday.github.io/assets/js/vendor/holder.min.js"></script>
+<script>
+    Holder.addTheme('thumb', {
+        bg: '#55595c',
+        fg: '#eceeef',
+        text: 'Thumbnail'
+    });
+</script>
+</body>
+</html>
