@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content=" Posts about artificial intelligence and machine learning.
+    A collection of insights, explanations and projects.">
+    <meta name="author" content="Ollie Day">
+    <link rel="icon" href="/olliejday.github.io/favicon.ico?">
+
+    <title>MBMF</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/olliejday.github.io/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+    <link href="/olliejday.github.io/blog.css" rel="stylesheet">
+
+    <!-- MathJax -->
+    <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" async></script>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/olliejday.github.io/index.html">Home</a>
+            </li>
+        </ul>
+    </div>
+    <div class="order-0 mx-auto">
+        <a href="/olliejday.github.io/index.html">
+            <img class="navbar-logo" src="/olliejday.github.io/assets/img/logo/logo.svg" alt="Logo: DAY">
+        </a>
+        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/olliejday.github.io/about.html">About</a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="container-fluid title-container">
+            <div class="row mb-2">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-10">
+
+                    <h1 class="mb-auto title-text">
+                        Model-Based Deep Reinforcement Learning with Model-Free Fine Tuning (MBMF)
+                    </h1>
+                    <!-- TODO: Make this link to the series -->
+                    <strong class="d-inline-block mb-2 rl-series sub-title-text">Reinforcement Learning</strong>
+                    <div class="mb-1 text-muted sub-title-text">April 2019</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main role="main" class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+        </div>
+
+        <div class="col-md-7 body-text">
+            <p><h3>Introduction</h3><br/>This algorithm comes from [1] and contributes a method for
+                training and applying neural network dynamics models. They show that the model can be used with a naive
+                random-shooting model predictive control (MPC) controller to learn task competency in a very sample
+                efficient manner. They also demonstrate using the model based policy to initialise a model free
+                reinforcement learning policy (TRPO) for more efficient
+                learning.<br/><br/>            <br/>
+
+
+            <h3>Overview</h3><br/></p>
+            <ul>
+                <li>Model based learning is typically very sample
+                efficient [2], but with poor asymptotic performance [1].</li>
+            <li>Model free learning is often less sample efficient but with better asymptotic performance.</li>
+            <li>Model is initially trained by stochastic gradient descent on the error of the predicted vs true next
+                states from random action trajectories. This model is general enough to perform a variety of tasks with
+                the MPC controller. The task can be redefined by changing the reward function used on the MPC control.
+                The model can also be further trained with reinforcement learning by training on data gathered with the
+                model based policy. This dataset aggregation helps reduce the data distribution shift.</li>
+            <li>The model learns the change in state for a given input state and action (rather than the next state).
+                This accounts for transitions with very similar states.</li>
+            <li>The model is paired with a random shooting MPC controller to become capable of a number of control
+                tasks.</li>
+            <li>The model is used to initialise a model free (TRPO) agent. The initialisation uses the model based MPC
+                controller as an expert to label the states (in model free on-policy trajectories) with actions. The
+                error between the model free predicted actions and these "true" actions is used with stochastic gradient
+                descent to train an initial policy.</li>
+            <li>The model based initialisation reduces sample complexity in their experiments.</li>
+            </ul><br/><br/>
+
+                <h3>Key
+                Equations</h3></p>
+                        <br/>
+
+            <p>The dynamics model \(\hat{f}_{\theta}(s_t, a_t)\) predicts the change in state resulting from taking an
+                action \(\hat{s}_{t+1} = s_t + \hat{f}_{\theta}(s_t, a_t)\). It is trained with stochastic gradient descent to
+                minimise the error on a dataset \(\mathcal{D}\) of state trajectories from random and on-policy (with
+                the controller) rollouts:</p>
+            <p>(2) \(J(\theta) = \frac{1}{\mathcal{D}}\sum\limits_{s_t, a_t, s_{t+1} \in \mathcal{D}}
+                \frac{1}{2}\|(s_{t+1}-s_t) - \hat{f}_\theta(s_t, a_t)\|^2\)</p>
+            <p>Model based control is used to choose the actions that maximise the discounted future reward. The search
+                for action sequences is limited to a horizon \(H\) from the current timestep:</p>
+            <p>(4) \(\textbf{A}^{(H)}_t = argmax_{\textbf{A}^{(H)}_t} \sum^{t+H-1}_{t'=t} \gamma^{t'-t}r(\hat{s}_{t'},
+                a_{t'})\)</p>
+            <p>Where the initial state is the current state of the agent, but subsequent states are from the model:</p>
+            <p>\(\hat{s}_t = s_t, \hat{s}_{t'+1} = \hat{s}_{t'} + \hat{f}_{\theta}(\hat{s}_{t'}, a_{t'})\)</p>
+            <p><br/>Instead of following the full sequence of actions, however, the controller uses MPC. In MPC, the
+                first action in the plan is taken and then the sequence of actions is replanned at the next state. This
+                is a more closed loop approach and can help compensate for modeling errors.<br/><br/>Similarly to the
+                dynamics model, the model free policy initialisation uses the supervised error objective. Here, the
+                policy predicts states, with the targets being the actions output by the model based MPC controller:</p>
+            <p>\(min_\phi \frac{1}{2}\sum\limits_{(s_t, a_t) \in \mathcal{D}*}\|a_t - \mu_\phi(s_t)\|_2^2\)</p>
+            <p>Where \(\mu_\theta(s_t)\) is the model free policy with parameters
+                \(\phi\).<br/><br/>
+
+                <h3>Pseudocode</h3></p>
+            <p>Taken from [1].</p><br/>
+            <div>
+            <img
+                    alt="Pseudocode for MBMF algorithm"
+                    class="card-img-right image-fluid-svg"
+                    src="/olliejday.github.io/posts/rl-papers/images/mbmf_pseudocode.png"/>
+            </div>
+            </p><br/><br/>
+            <p><h3>Future Work</h3></p>
+                        <br/>
+
+            <ul>
+            <li>Improve the MPC controller. Currently quite naive as focus is on the performance of the model.
+                Improving this could lead to a working model based control system.</li>
+            <li>Try in real world as the sample efficiency makes this applications feasible.</li>
+            <li>Try with other model free algorithms to enable more flexibility with the initialisation technique.</li>
+                </ul>
+            <br/><br/>
+                <h3>Sources</h3>
+            <br/>
+            </p>
+            <p>[1] Neural Network Dynamics for Model-Based Deep Reinforcement Learning with Model-Free Fine-Tuning,
+                Nagabandi et al, 2017.<br/>[2] A survey on policysearch for robotics, Deisenroth et al, 2013.</p>
+
+        </div>
+
+    </div><!-- /.row -->
+
+</main><!-- /.container -->
+</div>
+
+<footer class="blog-footer">
+    <p>Copyright 2018-2019 <a href="https://www.github.com/olliejday">@olliejday</a>.
+    </p>
+    <p>
+        <a href="#">Back to top</a>
+
+    </p>
+</footer>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/olliejday.github.io/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+<script src="/olliejday.github.io/assets/js/vendor/popper.min.js"></script>
+<script src="/olliejday.github.io/dist/js/bootstrap.min.js"></script>
+<script src="/olliejday.github.io/assets/js/vendor/holder.min.js"></script>
+<script>
+    Holder.addTheme('thumb', {
+        bg: '#55595c',
+        fg: '#eceeef',
+        text: 'Thumbnail'
+    });
+</script>
+</body>
+</html>
