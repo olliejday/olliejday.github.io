@@ -77,41 +77,56 @@
         </div>
 
         <div class="col-md-7 body-text">
-            <p><h3>Introduction</h3><br/>This algorithm comes from [1] and contributes a method for
-                training and applying neural network dynamics models. They show that the model can be used with a naive
-                random-shooting model predictive control (MPC) controller to learn task competency in a very sample
-                efficient manner. They also demonstrate using the model based policy to initialise a model free
-                reinforcement learning policy (TRPO) for more efficient
-                learning.<br/><br/>            <br/>
+            <p>
+            <h3>Introduction</h3><br/>This algorithm comes from [1] and contributes a method for
+            training and applying neural network dynamics models. They show that the model can be used with a naive
+            random-shooting model predictive control (MPC) controller to learn task competency in a very sample
+            efficient manner. They also demonstrate using the model based policy to initialise a model free
+            reinforcement learning policy (TRPO) for more efficient
+            learning.<br/><br/> <br/>
 
 
             <h3>Overview</h3><br/></p>
             <ul>
+                <li>MBMF is in theory off-policy but in practice performs best with on-policy data.</li>
                 <li>Model based learning is typically very sample
-                efficient [2], but with poor asymptotic performance [1].</li>
-            <li>Model free learning is often less sample efficient but with better asymptotic performance.</li>
-            <li>Model is initially trained by stochastic gradient descent on the error of the predicted vs true next
-                states from random action trajectories. This model is general enough to perform a variety of tasks with
-                the MPC controller. The task can be redefined by changing the reward function used on the MPC control.
-                The model can also be further trained with reinforcement learning by training on data gathered with the
-                model based policy. This dataset aggregation helps reduce the data distribution shift.</li>
-            <li>The model learns the change in state for a given input state and action (rather than the next state).
-                This accounts for transitions with very similar states.</li>
-            <li>The model is paired with a random shooting MPC controller to become capable of a number of control
-                tasks.</li>
-            <li>The model is used to initialise a model free (TRPO) agent. The initialisation uses the model based MPC
-                controller as an expert to label the states (in model free on-policy trajectories) with actions. The
-                error between the model free predicted actions and these "true" actions is used with stochastic gradient
-                descent to train an initial policy.</li>
-            <li>The model based initialisation reduces sample complexity in their experiments.</li>
-            </ul><br/><br/>
+                    efficient [2], but with poor asymptotic performance [1].
+                </li>
+                <li>Model free learning is often less sample efficient but with better asymptotic performance.</li>
+                <li>Model is initially trained by stochastic gradient descent on the error of the predicted vs true next
+                    states from random action trajectories. This model is general enough to perform a variety of tasks
+                    with
+                    the MPC controller. The task can be redefined by changing the reward function used on the MPC
+                    control.
+                    The model can also be further trained with reinforcement learning by training on data gathered with
+                    the
+                    model based policy. This dataset aggregation helps reduce the data distribution shift.
+                </li>
+                <li>The model learns the change in state for a given input state and action (rather than the next
+                    state).
+                    This accounts for transitions with very similar states.
+                </li>
+                <li>The model is paired with a random shooting MPC controller to become capable of a number of control
+                    tasks.
+                </li>
+                <li>The model is used to initialise a model free (TRPO) agent. The initialisation uses the model based
+                    MPC
+                    controller as an expert to label the states (in model free on-policy trajectories) with actions. The
+                    error between the model free predicted actions and these "true" actions is used with stochastic
+                    gradient
+                    descent to train an initial policy.
+                </li>
+                <li>The model based initialisation reduces sample complexity in their experiments.</li>
+            </ul>
+            <br/><br/>
 
-                <h3>Key
+            <h3>Key
                 Equations</h3></p>
-                        <br/>
+            <br/>
 
             <p>The dynamics model \(\hat{f}_{\theta}(s_t, a_t)\) predicts the change in state resulting from taking an
-                action \(\hat{s}_{t+1} = s_t + \hat{f}_{\theta}(s_t, a_t)\). It is trained with stochastic gradient descent to
+                action \(\hat{s}_{t+1} = s_t + \hat{f}_{\theta}(s_t, a_t)\). It is trained with stochastic gradient
+                descent to
                 minimise the error on a dataset \(\mathcal{D}\) of state trajectories from random and on-policy (with
                 the controller) rollouts:</p>
             <p>(2) \(J(\theta) = \frac{1}{\mathcal{D}}\sum\limits_{s_t, a_t, s_{t+1} \in \mathcal{D}}
@@ -131,26 +146,29 @@
             <p>Where \(\mu_\theta(s_t)\) is the model free policy with parameters
                 \(\phi\).<br/><br/>
 
-                <h3>Pseudocode</h3></p>
+            <h3>Pseudocode</h3></p>
             <p>Taken from [1].</p><br/>
             <div>
-            <img
-                    alt="Pseudocode for MBMF algorithm"
-                    class="card-img-right image-fluid-svg"
-                    src="/olliejday.github.io/posts/rl-papers/images/mbmf_pseudocode.png"/>
+                <img
+                        alt="Pseudocode for MBMF algorithm"
+                        class="card-img-right image-fluid-svg"
+                        src="/olliejday.github.io/posts/rl-papers/images/mbmf_pseudocode.png"/>
             </div>
             </p><br/><br/>
-            <p><h3>Future Work</h3></p>
-                        <br/>
+            <p>
+            <h3>Future Work</h3></p>
+            <br/>
 
             <ul>
-            <li>Improve the MPC controller. Currently quite naive as focus is on the performance of the model.
-                Improving this could lead to a working model based control system.</li>
-            <li>Try in real world as the sample efficiency makes this applications feasible.</li>
-            <li>Try with other model free algorithms to enable more flexibility with the initialisation technique.</li>
-                </ul>
+                <li>Improve the MPC controller. Currently quite naive as focus is on the performance of the model.
+                    Improving this could lead to a working model based control system.
+                </li>
+                <li>Try in real world as the sample efficiency makes this applications feasible.</li>
+                <li>Try with other model free algorithms to enable more flexibility with the initialisation technique.
+                </li>
+            </ul>
             <br/><br/>
-                <h3>Sources</h3>
+            <h3>Sources</h3>
             <br/>
             </p>
             <p>[1] Neural Network Dynamics for Model-Based Deep Reinforcement Learning with Model-Free Fine-Tuning,
