@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content=" Posts about artificial intelligence and machine learning.
+    A collection of insights, explanations and projects.">
+    <meta name="author" content="Ollie Day">
+    <link rel="icon" href="/olliejday.github.io/favicon.ico?">
+
+    <title>TRPO</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/olliejday.github.io/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+    <link href="/olliejday.github.io/blog.css" rel="stylesheet">
+
+    <!-- MathJax -->
+    <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" async></script>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/olliejday.github.io/index.html">Home</a>
+            </li>
+        </ul>
+    </div>
+    <div class="order-0 mx-auto">
+        <a href="/olliejday.github.io/index.html">
+            <img class="navbar-logo" src="/olliejday.github.io/assets/img/logo/logo.svg" alt="Logo: DAY">
+        </a>
+        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/olliejday.github.io/about.html">About</a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="container-fluid title-container">
+            <div class="row mb-2">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-10">
+
+                    <h1 class="mb-auto title-text">
+                        Trust Region Policy Optimisation (TRPO)
+                    </h1>
+                    <!-- TODO: Make this link to the series -->
+                    <strong class="d-inline-block mb-2 rl-series sub-title-text">Reinforcement Learning</strong>
+                    <div class="mb-1 text-muted sub-title-text">April 2019</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main role="main" class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+        </div>
+
+        <div class="col-md-7 body-text">
+            <p>
+            <h3>Introduction</h3><p></p><br/><br/>This algorithm comes from [1] and contributes an approximation to a
+                theoretically-justified policy improvement procedure. They approximate the monotonic improvement result
+                from [2] (equation (1) below) to produce a complex algorithm to optimise policies. The theoretical
+                improvement bound uses expectation under actions from the updated policy, but they use an approximation
+                to this using actions under the current policy. To ensure this estimation is valid, they limit how
+                different the updated policy can be from the current policy.</p>
+            <p>By taking consideration of the policy distribution change, they can take steps in policy space rather
+                than parameter space. Vanilla policy gradients take steps in parameter space, but changes in parameter
+                space can lead to big changes in the resulting policy. Instead, the natural policy gradient [3] and
+                similarly this work, take steps in policy space which ensures that large steps can be taken on each
+                update without training collapsing.<br/><br/><br/>
+
+            <h3>Overview</h3><br/></p>
+            <ul>
+                <li>Model free</li>
+                <li>On-policy</li>
+                <li>Discrete or continuous action spaces</li>
+                <li>Monte Carlo Q value estimation is used in the paper, but TRPO can be extended to use other
+                    estimations such as with advantage and value function
+                </li>
+            </ul>
+            <p>&nbsp;</p>
+            <h3>Key Equations</h3><br/><br/>
+            <p>There is quite involved maths in the derivation of TRPO. I will just sketch it here, referring the reader
+                to the paper [1] or lectures by Sergey Levine, one of the authors [5].</p>
+            <p>Let \(J(\theta)\) be the expected reward of a policy parameterised by \(\theta\).</p>
+            <p>(1) \(J(\theta) = \mathbb{E}_{\tau \sim p_\theta(\tau)}\bigg[\sum_t\gamma^tr(s_t, a_t)\bigg]\)</p>
+            <p>The basis for this method is the policy improvement bound [2].</p>
+            <p>(2) \(J(\theta') - J(\theta) = \mathbb{E}_{\tau \sim
+                p_{\theta'}(\tau)}\bigg[\sum_t\gamma^tA^{\pi_\theta}(s_t, a_t)\bigg]\)</p>
+            <p>Intuitively, this says that the expected return of an updated policy \(\pi_{\theta'}\) is the expected
+                return of the old policy, \(\pi_\theta\) plus the advantage of this new policy with respect the old
+                policy. Roughly, how good is a new policy? As good as the old policy plus how much better it is than the
+                old policy.</p>
+            <p>Note, however that this identity (2) uses the expectation under the new policy \(\theta'\). This is not
+                desirable as we would like to use data from the old policy to do our updates. By taking out the
+                summation and splitting the expectation into the state and action marginals:</p>
+            <p>\(\mathbb{E}_{\tau \sim p_{\theta'}(\tau)}\bigg[\sum_t\gamma^tA^{\pi_\theta}(s_t, a_t)\bigg] =
+                \sum_t\mathbb{E}_{s_t \sim p_{\theta'}(s_t)}\bigg
+                [\mathbb{E}_{a_t\sim\pi_{\theta'}(a_t|s_t)}\bigg[\gamma^tA^{\pi_\theta}(s_t, a_t)\bigg]\bigg]\)</p>
+            <p>We can then use importance sampling to account for the expectation over actions.</p>
+            <p>\(\mathbb{E}_{\tau \sim p_{\theta'}(\tau)}\bigg[\sum_t\gamma^tA^{\pi_\theta}(s_t, a_t)\bigg] =
+                \sum_t\mathbb{E}_{s_t \sim p_{\theta'}(s_t)}\bigg
+                [\mathbb{E}_{a_t\sim\pi_{\theta}(a_t|s_t)}\bigg[\frac{\pi_{\theta'}(a_t|s_t)}{\pi_\theta(a_t|s_t)}\gamma^tA^{\pi_\theta}(s_t,
+                a_t)\bigg]\bigg]\)</p>
+            <p>But we still have the expectation over the state marginal from the new policy. This paper asks, what if
+                we ignore the distribution mismatch, and just use data from the old policy for the expectation? If the
+                updates are small and the policies are close, intuitively this should be a valid approximation. They
+                call this approximation the surrogate advantage, \(\mathcal{L}(\theta', \theta)$:</p>
+            <p>(3) \(\mathbb{E}_{\tau \sim p_{\theta'}(\tau)}\bigg[\sum_t\gamma^tA^{\pi_\theta}(s_t, a_t)\bigg] \approx
+                \mathcal{L}(\theta', \theta) = \sum_t\mathbb{E}_{s_t \sim p_{\theta}(s_t)}\bigg
+                [\mathbb{E}_{a_t\sim\pi_{\theta}(a_t|s_t)}\bigg[\frac{\pi_{\theta'}(a_t|s_t)}{\pi_\theta(a_t|s_t)}\gamma^tA^{\pi_\theta}(s_t,
+                a_t)\bigg]\bigg]\)</p>
+            <p>In fact, as proved in [1] and [5], we can bound the error in the approximation based on the KL
+                divergence, \(D_{KL}\) of the two policies. Intuitively, if we limit how different the policies are in
+                policy space, this approximation has bounded error. Therefore, for small enough \(\epsilon$, the
+                following update approximates the policy improvement identity (2) and is guaranteed to improve the
+                policy:</p>
+            <p>(4) \(\theta' \xleftarrow{} \text{argmax}_{\theta'} \mathcal{L}(\theta', \theta)<br/>\text{ such that}
+                D_{KL}(\pi_{\theta'}(a_t|s_t)||\pi_\theta(a_t|s_t)) \leq \epsilon\)</p>
+            <p>This approximation is our objective. It is a key result used in TRPO, where the \(D_{KL}\) constraint is
+                enforced on our updates. The objective is also important in other algorithms such as natural gradient
+                [6] where the \(D_{KL}\) term is a penalty and PPO [7] where the policies are kept close by clipping or
+                penalties.</p>
+            <p>Note that both the objective and the constraint are zero when \theta' = \theta.</p>
+            <p>We now make approximations to the objective in order to realise a practical update. We make a linear
+                approximation on the objective:</p>
+            <p>\(\mathcal{L}(\theta', \theta) \approx \nabla_\theta\mathcal{L}(\theta', \theta)^T(\theta' - \theta)\)</p>
+            <p>This turns out to be exactly the normal policy gradient.</p>
+            <p>(5) \(\nabla_\theta\mathcal{L}(\theta', \theta)^T(\theta' - \theta) = \nabla_\theta J(\theta)^T(\theta' -
+                \theta)\)</p>
+            <p>We also make a quadratic approximation on the constraint:</p>
+            <p>(6) \(D_{KL}(\pi_{\theta'}||\pi_\theta) \approx \frac{1}{2}(\theta' -
+                \theta)^T\mathbf{F}(\theta'-\theta)\)</p>
+            <p>Where \(\mathbf{F}\) is the Fisher information matrix.</p>
+            <p>\(\mathbf{F} = \mathbb{E}_{\pi_\theta}\big[\nabla_\theta \log \pi_\theta(a|s)\nabla_\theta \log
+                \pi_\theta(a|s)^T\big]\)</p>
+            <p>With this approximation to the objective and constraint:</p>
+            <p>(7) \(\theta' = \text{argmax}_{\theta'} \nabla_\theta J(\theta)^T(\theta' - \theta) <br/>\text{ such that
+                } \frac{1}{2}(\theta' - \theta)^T\mathbf{F}(\theta'-\theta) \leq \epsilon\)<br/><br/>We yield the
+                following update:</p>
+            <p>(8) \(\theta' = \theta + \sqrt{\frac{2\epsilon}{\nabla_\theta J(\theta)^T\mathbf{F}^{-1}\nabla_\theta
+                J(\theta)}}\mathbf{F}^{-1}\nabla_\theta J(\theta) \)</p>
+            <p>This is called the natural policy gradient [6]. However, due to the approximations it is not guaranteed
+                that the updated (8) will enforce the constraint. Thus TRPO uses a backtracking search to ensure the
+                constraint is met. This means for a parameter \(\alpha \in (0,1)\) the update is:</p>
+            <p>(9) \(\theta' = \theta + \alpha^j\sqrt{\frac{2\epsilon}{\nabla_\theta
+                J(\theta)^T\mathbf{F}^{-1}\nabla_\theta J(\theta)}}\mathbf{F}^{-1}\nabla_\theta J(\theta) \)</p>
+            <p>Where \(j\) is the smallest such positive integer such that the KL divergence constraint of the updated
+                policy is met.</p>
+            <p>A final note is that for the Fisher information matrix \(\mathbf{F}\) it is expensive to compute the
+                inverse, as neural network policies have a lot of parameters. Therefore the conjugate gradient algorithm
+                is used to solve \(\mathbf{F}x = \nabla_\theta J(\theta)\) for \(x = \mathbf{F}^{-1}\nabla_\theta
+                J(\theta)\).</p>
+            <p>This completes the explanation of some of the key points of the TRPO algorithm. The next section shows
+                pseudocode putting this all together.</p><br/><br/>
+            <h3>Pseudocode</h3><br/><br/>
+            <p>Here is the pseudocode for TRPO [4]. Note that this pseudocode has generality about how to fit advantage
+                estimates, for example by function approximation or Monte Carlo estimates. It also contains the
+                implementation details of the fairly complex optimisation used to train TRPO.</p>
+                        <div>
+                <img
+                        alt="Pseudocode for TRPO algorithm"
+                        class="card-img-right image-fluid-svg"
+                        src="/olliejday.github.io/posts/rl-papers/images/trpo.svg"/>
+            </div><br/><br/>
+            <h3>Sources</h3><br/>
+            <p>[1] Trust Region Policy Optimization, Schulman et al, 2015.<br/>[2] Approximately Optimal Approximate
+                Reinforcement Learning, Kakade and Langford, 2002.<br/>[3] A Natural Policy Gradient, Kakade, 2002.
+                <br/>[4] Spinning Up TRPO Docs, OpenAI, 2018.<br/>[5] Lecture 9: Advanced Policy Gradients, Sergey
+                Levine for CS 294-112: Deep Reinforcement Learning at UC Berkeley, 2018.<br/>[6] A Natural Policy
+                Gradient, Kakade, 2002.<br/>[7] Proximal Policy Optimization Algorithms, Schulman et al, 2017.<br/><br/><br/>
+            </p>
+            <p>&nbsp;</p>
+
+        </div>
+
+    </div><!-- /.row -->
+
+</main><!-- /.container -->
+</div>
+
+<footer class="blog-footer">
+    <p>Copyright 2018-2019 <a href="https://www.github.com/olliejday">@olliejday</a>.
+    </p>
+    <p>
+        <a href="#">Back to top</a>
+
+    </p>
+</footer>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/olliejday.github.io/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+<script src="/olliejday.github.io/assets/js/vendor/popper.min.js"></script>
+<script src="/olliejday.github.io/dist/js/bootstrap.min.js"></script>
+<script src="/olliejday.github.io/assets/js/vendor/holder.min.js"></script>
+<script>
+    Holder.addTheme('thumb', {
+        bg: '#55595c',
+        fg: '#eceeef',
+        text: 'Thumbnail'
+    });
+</script>
+</body>
+</html>
