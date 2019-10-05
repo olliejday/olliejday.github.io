@@ -62,8 +62,9 @@
                     <h1 class="mb-auto title-text">
                         Asynchronous Advantage Actor-Critic (A3C)
                     </h1>
-                    <!-- TODO: Make this link to the series -->
-                    <strong class="d-inline-block mb-2 rl-series sub-title-text">Reinforcement Learning</strong>
+                    <strong><a class="d-inline-block mb-2 rl-series card-text"
+                               href="/olliejday.github.io/posts/rl-papers/index.html">Reinforcement
+                        Learning</a></strong>
                     <div class="mb-1 text-muted sub-title-text">April 2019</div>
                 </div>
             </div>
@@ -78,9 +79,7 @@
 
         <div class="col-md-7 body-text">
             <p>
-            <h3>Introduction</h3><br/><br/>This algorithm comes from [1] where asynchronous gradient descent
-            is used to train neural network controllers. They apply the framework to value based methods too, but
-            the actor-critic algorithm they present (A3C) is the best performing. The key idea is to use multiple,
+            <h3>Introduction</h3><br/><br/>The key idea presented in A3C [1] is to use multiple,
             parallel actor-learners each running on separate instances of the environment. Since each actor-learner
             experiences different states, this approach decorrelates the data into a more stationary process. This
             has a stabilising effect on training, as an alternative to experience replay. In contrast to experience
@@ -124,6 +123,11 @@
                     src="/olliejday.github.io/posts/rl-papers/images/a3c_pseudocode.png"/>
             </div>
             </p><br/><br/>
+            <h3>Code</h3><br/>
+            <p>The reimplementation code (Python and Tensorflow) of this and many other key reinforcement learning
+                algorithms can be found in the growing <a href="https://github.com/olliejday/rl-algorithms">RL algorithms GitHub repo</a> I am developing. The code
+                shows concretely how these ideas and equations are applied. Each algorithm comes with example
+            experiments so you can run them out of the box.</p><br/>
             <h3>Sources</h3><br/><br/>
             <p>[1] Asynchronous Methods for Deep Reinforcement Learning, Mnih et al, 2016.<br/>[2] Simple statistical
                 gradient-following algorithms for connectionist reinforcement learning, Williams, R.J., 1992.</p>

@@ -62,8 +62,10 @@
                     <h1 class="mb-auto title-text">
                         2. Neural Networks: Prediction
                     </h1>
-                    <!-- TODO: Make this link to the series -->
-                    <strong class="d-inline-block mb-2 intro-nn-series sub-title-text">Introduction to Neural Networks</strong>
+                    <strong><a class="d-inline-block mb-2 intro-nn-series card-text"
+                               href="/olliejday.github.io/posts/Intro-to-neural-networks-series/index.html">Introduction
+                        to
+                        Neural Networks</a></strong>
                     <div class="mb-1 text-muted sub-title-text">Jan 2019</div>
                 </div>
             </div>
@@ -80,7 +82,7 @@
 
             <p><strong>INTRODUCTION</strong></p>
             <p>Having given the intuitions and overview of deep learning in the <a
-                    href="posts/Intro-to-neural-networks-series/1-Introduction/intro-nn.html">
+                    href="/olliejday.github.io/posts/Intro-to-neural-networks-series/1-Introduction/intro-nn.html">
                 first post</a>, we now continue to explore
                 in more detail how neural networks compute their outputs. Starting from the most basic unit we develop
                 the computation of layers and the whole network. Along the way, we build up a better idea of how neural
@@ -118,7 +120,7 @@
                 similarly to those
                 in a hidden layer but are not fed into another layer, the values are used as the outputs of the
                 model.</p>
-            <p>We said <a href="posts/Intro-to-neural-networks-series/1-Introduction/intro-nn.html">previously</a> that
+            <p>We said <a href="/olliejday.github.io/posts/Intro-to-neural-networks-series/1-Introduction/intro-nn.html">previously</a> that
                 a neuron takes as input the activations of the previous layer and computes its
                 output as follows:</p>
             <ol><strong>
@@ -163,7 +165,7 @@
 
             <p><br/><strong>ACTIVATION FUNCTION</strong></p>
             <p>Now we will look in more detail at activation functions. We mentioned an example activation function in
-                the <a href="posts/Intro-to-neural-networks-series/1-Introduction/intro-nn.html">first post</a>, the
+                the <a href="/olliejday.github.io/posts/Intro-to-neural-networks-series/1-Introduction/intro-nn.html">first post</a>, the
                 sigmoid function. This was one of the early adopted activation functions and it has
                 nice theoretical properties. An ANN with even a single hidden layer containing a large enough number of
                 sigmoid units can approximate any continuous function on a compact region of the network&rsquo;s input
@@ -191,7 +193,7 @@
             <p>As we touched on above, the output layer is a special case because its activations are directly used as
                 the outputs of the neural network. As a result, there are different functions that are typically used to
                 better match the desired outputs. As discussed <a <a
-                        href="posts/Intro-to-neural-networks-series/1-Introduction/intro-nn.html">previously</a>, there
+                        href="/olliejday.github.io/posts/Intro-to-neural-networks-series/1-Introduction/intro-nn.html">previously</a>, there
                 are two main types of problems in deep
                 learning, <strong>regression</strong> where we model a set of real-valued numbers and <strong>classification</strong>
                 where we predict
@@ -320,31 +322,18 @@
                 classification, however, to retrieve a final class we either sample probabilistically or take the
                 maximum of the softmax outputs. In this example, we could sample using these probabilities or output the
                 3rd class since this is the largest output value.</p>
-            <p><strong>PROJECT</strong></p>
-            <p>Now we have an understanding of the maths and ideas behind neural network prediction, it's time to
-                implement this in code! We will use Numpy and Python to do this as these are popular tools for machine
-                learning and deep learning. The notebooks are fairly accessible but those less familiar may like to look
-                at the <a href="https://docs.scipy.org/doc/">Numpy documentation</a>. We have set up this as
-                Google Colab notebooks so they can be run on Google servers (feel free to <a
-                        href="https://github.com/olliejday/article-projects/tree/master/intro-nn-series/2-Prediction">download
-                    them</a> yourself if you prefer). Colab notebooks are a great tool for machine learning as they
-                come with GPU instances. This means we get really nice computing power in the cloud for free - so anyone
-                can get involved with these projects! We won't need much computing power to run these but it's good to
-                get the hang of these great tools.</p>
-            <strong>
-                <p>You can find the <a
-                        href="http://colab.research.google.com/github/olliejday/article-projects/blob/master/intro-nn-series/2-Prediction/nn-prediction-project.ipynb">project
-                    notebook here</a>.</p>
-            </strong>
-            <p>We strongly encourage you to give this a try! You'll find you learn lots from implementing this and it
-                will really give you a good understanding of the forward pass stage. There are testing functions so you
-                can see how you do. Once you've had a go try comparing to how we answered the project, in the <a
-                        href="https://colab.research.google.com/github/olliejday/article-projects/blob/master/intro-nn-series/2-Prediction/nn-prediction-solutions.ipynb">solution
-                    notebook here</a>.</p>
+            <p><strong>CODE: DEEP LEARNING LIBRARY</strong></p>
+            <p>Now we have an understanding of the maths and ideas behind neural network prediction, let's look at how
+                the maths plays out in code! You can see the code on GitHub where we have a Numpy
+                <a href="https://github.com/olliejday/Deep-Learning-Library">deep learning library</a>. The interface to this
+                code is designed to be flexible and easy to use. You can see the building blocks we have described here,
+                written in Numpy and try combining layers to solve simple problems using deep learning!
+
+            </p>
             <p><strong>SUMMARY</strong></p>
             <p>In this post, we have expanded the details of prediction on the neural network. We developed the ideas
                 and
-                intuitions from the <a href="posts/Intro-to-neural-networks-series/1-Introduction/intro-nn.html">first
+                intuitions from the <a href="/olliejday.github.io/posts/Intro-to-neural-networks-series/1-Introduction/intro-nn.html">first
                     post</a> into the formal maths and theory of the forward propagation. We built up
                 understanding from a single neuron unit into layers and a whole network of computation. We saw some
                 examples of activation functions and key output activation functions for regression and classification.
